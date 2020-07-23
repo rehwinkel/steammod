@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":  { "model": "yellowstone:block/douglas_fir_top" },
+    "axis=z":   { "model": "yellowstone:block/douglas_fir_top", "x": 90 },
+    "axis=x":   { "model": "yellowstone:block/douglas_fir_top", "x": 90, "y": 90 },
+    "axis=none": { "model": "yellowstone:block/douglas_fir_bark" }
+  }
+}
