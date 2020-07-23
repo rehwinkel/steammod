@@ -1,3 +1,17 @@
 {
-  "block.yellowstone.lavastone": "Lavastone"
+  "block.yellowstone.lavastone": "Lavastone",
+  "block.yellowstone.dirt": "Sandy Dirt",
+  "block.yellowstone.douglas_planks": "Douglas Planks",
+  "block.yellowstone.douglas_fence": "Douglas Fence",
+  "block.yellowstone.douglas_fence_gate": "Douglas Fence Gate",
+  "block.yellowstone.douglas_door": "Douglas Door",
+  "block.yellowstone.douglas_trapdoor": "Douglas Trapdoor",
+  "block.yellowstone.douglas_stairs": "Douglas Stairs",
+  "block.yellowstone.douglas_slab": "Douglas Slab",
+  "block.yellowstone.douglas_pressure_plate": "Douglas Pressure Plate",
+  "block.yellowstone.douglas_button": "Douglas Button",
+  "block.yellowstone.douglas_leaves": "Douglas Needles",
+  "block.yellowstone.douglas_sapling": "Douglas Sapling",
+  "block.yellowstone.douglas_stripped": "Stripped Douglas Planks",
+  "block.yellowstone.douglas_wood": "Douglas Wood"
 }

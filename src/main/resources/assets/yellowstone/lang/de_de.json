@@ -1,3 +1,17 @@
 {
-  "block.yellowstone.lavastone": "Lavastein"
+  "block.yellowstone.lavastone": "Lavastein",
+  "block.yellowstone.dirt": "Sandige Erde",
+  "block.yellowstone.douglas_planks": "Douglasienholzbretter",
+  "block.yellowstone.douglas_fence": "Douglasienholzzaun",
+  "block.yellowstone.douglas_fence_gate": "Douglasienholzzauntor",
+  "block.yellowstone.douglas_door": "Douglasienholztür",
+  "block.yellowstone.douglas_trapdoor": "Douglasienholzfalltür",
+  "block.yellowstone.douglas_stairs": "Douglasienholztreppe",
+  "block.yellowstone.douglas_slab": "Douglasienholzstufe",
+  "block.yellowstone.douglas_pressure_plate": "Douglasienholzdruckplatte",
+  "block.yellowstone.douglas_button": "Douglasienholzknopf",
+  "block.yellowstone.douglas_leaves": "Douglasiennadeln",
+  "block.yellowstone.douglas_sapling": "Douglasiensetzling",
+  "block.yellowstone.douglas_stripped": "Entrindeter Douglasienstamm",
+  "block.yellowstone.douglas_wood": "Douglasienstamm"
 }
