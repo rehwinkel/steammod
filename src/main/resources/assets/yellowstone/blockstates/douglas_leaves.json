@@ -1,7 +1,5 @@
 {
   "variants": {
-    "": {
-      "model": "minecraft:block/yellowstone:douglas_leaves"
-    }
+    "normal": { "model": "yellowstone:block/douglas_fir_leaves" }
   }
 }
