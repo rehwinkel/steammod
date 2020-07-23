@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "yellowstone:copper_block"
+    }
+  ],
+  "result": {
+    "item": "yellowstone:copper_ingot",
+    "count": 9
+  }
+}

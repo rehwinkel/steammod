@@ -9,9 +9,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import yellowstone.world.WorldGen;
 import yellowstone.item.AddPathingShovelItem;
 import yellowstone.item.AddStrippingAxeItem;
-import yellowstone.world.WorldGen;
 
 @Mod(Yellowstone.MODID)
 public class Yellowstone {

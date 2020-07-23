@@ -31,6 +31,7 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
 
     public LazyOptional<ItemStackHandler> input = LazyOptional.of(() -> new ItemStackHandler(4));
     public LazyOptional<ItemStackHandler> output = LazyOptional.of(() -> new ItemStackHandler(1));
+    public LazyOptional<ItemStackHandler> fuel = LazyOptional.of(() -> new ItemStackHandler(1));
 
     public static final SmelteryRecipe[] recipes = {
         new SmelteryRecipe(new ItemStack[] {new ItemStack(BlockRegistry.COPPER_ORE.get(), 2), new ItemStack(BlockRegistry.NICKEL_ORE.get()), ItemStack.EMPTY, ItemStack.EMPTY}, new ItemStack(ItemRegistry.BRASS_INGOT.get(), 3))
@@ -44,6 +45,7 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
     public CompoundNBT write(CompoundNBT nbt) {
         nbt.put("input", this.input.orElse(null).serializeNBT());
         nbt.put("output", this.output.orElse(null).serializeNBT());
+        nbt.put("fuel", this.fuel.orElse(null).serializeNBT());
         return super.write(nbt);
     }
 
@@ -51,6 +53,7 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
     public void read(BlockState state, CompoundNBT nbt) {
         this.input.orElse(null).deserializeNBT(nbt.getCompound("input"));
         this.output.orElse(null).deserializeNBT(nbt.getCompound("output"));
+        this.fuel.orElse(null).deserializeNBT(nbt.getCompound("fuel"));
         super.read(state, nbt);
     }
 
@@ -71,7 +74,7 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
     @Nullable
     @Override
     public Container createMenu(int i, PlayerInventory playerInventory, PlayerEntity playerEntity) {
-        return new SmelteryContainer(i, playerInventory, this.input.orElse(null), this.output.orElse(null));
+        return new SmelteryContainer(i, playerInventory, this.input.orElse(null), this.output.orElse(null), this.fuel.orElse(null));
     }
 
     @Override
