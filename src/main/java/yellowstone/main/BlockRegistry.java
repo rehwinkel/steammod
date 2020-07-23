@@ -59,9 +59,6 @@ public class BlockRegistry {
             () -> new SaplingBlock(new OakTree(),
                     AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly()
                             .zeroHardnessAndResistance().sound(SoundType.PLANT))); //TODO
-    public static final RegistryObject<Block> POTTED_DOUGLAS_SAPLING = BLOCKS.register("potted_douglas_sapling",
-            () -> new FlowerPotBlock(null, DOUGLAS_SAPLING,
-                    AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
     public static final RegistryObject<Block> DOUGLAS_LOG = BLOCKS.register("douglas_log", () -> new RotatedPillarBlock(
             Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F)
                     .sound(SoundType.WOOD)));
@@ -85,6 +82,9 @@ public class BlockRegistry {
             AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F)));
 
     static {
+        BLOCKS.register("potted_douglas_sapling",
+                () -> new FlowerPotBlock(null, DOUGLAS_SAPLING,
+                        AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("lavastone",
                 () -> new BlockItem(LAVASTONE.get(), new Item.Properties().group(YellowStone.y_blocks)));
