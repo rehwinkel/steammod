@@ -3,15 +3,15 @@ package yellowstone.main;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.trees.OakTree;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
-import yellowstone.blocks.SmelteryBlock;
 import net.minecraftforge.registries.ForgeRegistries;
 import yellowstone.block.DirtBlock;
 import yellowstone.block.GooseberryBushBlock;
+import yellowstone.blocks.SmelteryBlock;
+import yellowstone.world.DouglasTree;
 
 public class BlockRegistry {
 
@@ -30,7 +30,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DOUGLAS_PRESSURE_PLATE = BLOCKS.register("douglas_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_BUTTON = BLOCKS.register("douglas_button", () -> new WoodButtonBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_LEAVES = BLOCKS.register("douglas_leaves", () -> new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.GREEN).hardnessAndResistance(0.2F).sound(SoundType.PLANT).notSolid()));
-    public static final RegistryObject<Block> DOUGLAS_SAPLING = BLOCKS.register("douglas_sapling", () -> new SaplingBlock(new OakTree(), AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT))); //TODO
+    public static final RegistryObject<Block> DOUGLAS_SAPLING = BLOCKS.register("douglas_sapling", () -> new SaplingBlock(new DouglasTree(), AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance().sound(SoundType.PLANT)));
     public static final RegistryObject<Block> DOUGLAS_LOG = BLOCKS.register("douglas_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> STRIPPED_DOUGLAS_LOG = BLOCKS.register("stripped_douglas_log", () -> new RotatedPillarBlock(Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> STRIPPED_DOUGLAS_WOOD = BLOCKS.register("stripped_douglas_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.create(Material.WOOD, MaterialColor.ADOBE).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
