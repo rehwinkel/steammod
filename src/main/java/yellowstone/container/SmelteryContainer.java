@@ -5,6 +5,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.Slot;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import yellowstone.blocks.SmelteryBlock;
@@ -36,6 +37,32 @@ public class SmelteryContainer extends Container {
         for (int i = 0; i < 27; i++) {
             this.addSlot(new Slot(player_inv, 9 + i, 8 + (i % 9) * 18, 84 + 18 * (i / 9)));
         }
+    }
+
+    @Override
+    public ItemStack transferStackInSlot(PlayerEntity player, int id) {
+        int invSize = 6;
+        ItemStack itemstack = ItemStack.EMPTY;
+        Slot slot = this.inventorySlots.get(id);
+        if (slot != null && slot.getHasStack()) {
+            ItemStack itemstack1 = slot.getStack();
+            itemstack = itemstack1.copy();
+            if (id < invSize) {
+                if (!this.mergeItemStack(itemstack1, invSize, this.inventorySlots.size(), true)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.mergeItemStack(itemstack1, 0, invSize, false)) {
+                return ItemStack.EMPTY;
+            }
+
+            if (itemstack1.isEmpty()) {
+                slot.putStack(ItemStack.EMPTY);
+            } else {
+                slot.onSlotChanged();
+            }
+        }
+
+        return itemstack;
     }
 
     @Override
