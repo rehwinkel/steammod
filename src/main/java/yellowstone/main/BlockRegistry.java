@@ -38,6 +38,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", () -> new OreBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.0F, 3.0F)));
     public static final RegistryObject<Block> NICKEL_ORE = BLOCKS.register("nickel_ore", () -> new OreBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.0F, 3.0F)));
     public static final RegistryObject<Block> BRASS_BLOCK = BLOCKS.register("brass_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> COPPER_BLOCK = BLOCKS.register("copper_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> NICKEL_BLOCK = BLOCKS.register("nickel_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> GRASS = BLOCKS.register("grass", () -> new yellowstone.block.GrassBlock(AbstractBlock.Properties.create(Material.ORGANIC).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.PLANT)));
     public static final RegistryObject<Block> PATH = BLOCKS.register("path", () -> new GrassPathBlock(AbstractBlock.Properties.create(Material.ORGANIC).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.PLANT)));
     public static final RegistryObject<Block> LAVASTONE_SLAB = BLOCKS.register("lavastone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(LAVASTONE.get())));
@@ -71,6 +73,8 @@ public class BlockRegistry {
         ITEMS.register("copper_ore", () -> new BlockItem(COPPER_ORE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("nickel_ore", () -> new BlockItem(NICKEL_ORE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("brass_block", () -> new BlockItem(BRASS_BLOCK.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("copper_block", () -> new BlockItem(COPPER_BLOCK.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("nickel_block", () -> new BlockItem(NICKEL_BLOCK.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("grass", () -> new BlockItem(GRASS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("lavastone_slab", () -> new BlockItem(LAVASTONE_SLAB.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("lavastone_stairs", () -> new BlockItem(LAVASTONE_STAIRS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
