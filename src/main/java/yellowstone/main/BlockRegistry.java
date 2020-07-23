@@ -60,7 +60,7 @@ public class BlockRegistry {
                     AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly()
                             .zeroHardnessAndResistance().sound(SoundType.PLANT))); //TODO
     public static final RegistryObject<Block> POTTED_DOUGLAS_SAPLING = BLOCKS.register("potted_douglas_sapling",
-            () -> new FlowerPotBlock(DOUGLAS_SAPLING.get(),
+            () -> new FlowerPotBlock(null, DOUGLAS_SAPLING,
                     AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
     public static final RegistryObject<Block> DOUGLAS_LOG = BLOCKS.register("douglas_log", () -> new RotatedPillarBlock(
             Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F)
