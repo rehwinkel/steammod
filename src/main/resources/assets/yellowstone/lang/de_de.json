@@ -12,7 +12,11 @@
   "block.yellowstone.douglas_button": "Douglasienholzknopf",
   "block.yellowstone.douglas_leaves": "Douglasiennadeln",
   "block.yellowstone.douglas_sapling": "Douglasiensetzling",
-  "block.yellowstone.douglas_stripped": "Entrindeter Douglasienstamm",
+  "block.yellowstone.stripped_douglas_log": "Entrindeter Douglasienstamm",
+  "block.yellowstone.stripped_douglas_wood": "Entrindetes Douglasienholz",
   "block.yellowstone.douglas_wood": "Douglasienstamm",
-  "block.yellowstone.douglas_log": "Douglasienholz"
+  "block.yellowstone.douglas_log": "Douglasienholz",
+  "block.yellowstone.copper_ore": "Kupfererz",
+  "block.yellowstone.nickel_ore": "Nickelerz",
+  "itemGroup.yellowstone_blocks": "Yellowstone Blöcke"
 }
