@@ -99,8 +99,8 @@ public class BlockRegistry {
                 () -> new BlockItem(DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("douglas_stripped",
                 () -> new BlockItem(DOUGLAS_STRIPPED.get(), new Item.Properties().group(YellowStone.y_blocks)));
-        ITEMS.register("douglas_log",
-                () -> new BlockItem(DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("douglas_wood",
+                () -> new BlockItem(DOUGLAS_WOOD.get(), new Item.Properties().group(YellowStone.y_blocks)));
     }
 
 }
