@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/acacia_planks"
+    "all": "yellowstone:block/douglas_planks"
   }
 }
