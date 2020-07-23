@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "yellowstone:nickel_ore"
+  },
+  "result": "yellowstone:nickel_ingot",
+  "experience": 0.8,
+  "cookingtime": 100
+}
