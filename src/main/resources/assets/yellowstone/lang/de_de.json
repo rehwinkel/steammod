@@ -18,6 +18,9 @@
   "block.yellowstone.douglas_log": "Douglasienholz",
   "block.yellowstone.copper_ore": "Kupfererz",
   "block.yellowstone.nickel_ore": "Nickelerz",
-  "itemGroup.yellowstone_blocks": "Yellowstone Blöcke",
-  "biome.yellowstone.yellowstone": "Yellowstone"
+  "biome.yellowstone.yellowstone": "Yellowstone",
+  "item.yellowstone.brass_ingot": "Messingbarren",
+  "block.yellowstone.brass_block": "Messingblock",
+  "item.yellowstone.gooseberries": "Stachelbeeren",
+  "itemGroup.yellowstone_blocks": "Yellowstone Blöcke"
 }

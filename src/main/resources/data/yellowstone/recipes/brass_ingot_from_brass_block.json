@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "yellowstone:brass_block"
+    }
+  ],
+  "result": {
+    "item": "yellowstone:brass_ingot",
+    "count": 9
+  }
+}
