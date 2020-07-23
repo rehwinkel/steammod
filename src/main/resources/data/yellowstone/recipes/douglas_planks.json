@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "yellowstone:douglas_logs"
+    }
+  ],
+  "result": {
+    "item": "yellowstone:douglas_planks",
+    "count": 4
+  }
+}

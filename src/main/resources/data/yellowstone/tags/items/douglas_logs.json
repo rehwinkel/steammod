@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "yellowstone:douglas_log",
+    "yellowstone:douglas_wood",
+    "yellowstone:stripped_douglas_log",
+    "yellowstone:stripped_douglas_wood"
+  ]
+}
