@@ -1,5 +1,6 @@
 package yellowstone.main;
 
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,4 +14,5 @@ public class ItemRegistry {
     // public static final RegistryObject<Item> GOOSEBERRIES = ITEMS.register("gooseberries", () -> new Item(null));
     public static final RegistryObject<Item> BRASS_INGOT = ITEMS.register("brass_ingot", () -> new Item(new Item.Properties()));
 
+    //TODO: register brass ingot to item tab
 }
