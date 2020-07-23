@@ -13,7 +13,7 @@ public class YellowStone {
     public static final ItemGroup y_blocks = new ItemGroup("yellowstone_blocks") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(BlockRegistry.STONE.get());
+            return new ItemStack(BlockRegistry.LAVASTONE.get());
         }
     };
 
