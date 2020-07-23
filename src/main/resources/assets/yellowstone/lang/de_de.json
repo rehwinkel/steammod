@@ -18,5 +18,6 @@
   "block.yellowstone.douglas_log": "Douglasienholz",
   "block.yellowstone.copper_ore": "Kupfererz",
   "block.yellowstone.nickel_ore": "Nickelerz",
-  "itemGroup.yellowstone_blocks": "Yellowstone Blöcke"
+  "itemGroup.yellowstone_blocks": "Yellowstone Blöcke",
+  "biome.yellowstone.yellowstone": "Yellowstone"
 }

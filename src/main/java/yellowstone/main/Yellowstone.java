@@ -11,8 +11,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import yellowstone.world.WorldGen;
 
-@Mod(YellowStone.MODID)
-public class YellowStone {
+@Mod(Yellowstone.MODID)
+public class Yellowstone {
 
     public static final String MODID = "yellowstone";
 
@@ -25,9 +25,10 @@ public class YellowStone {
 
     private static final IProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
-    public YellowStone() {
+    public Yellowstone() {
         BlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BlockRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
     }

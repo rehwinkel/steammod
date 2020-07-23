@@ -8,11 +8,14 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class BlockRegistry {
 
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Block.class, YellowStone.MODID);
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Item.class, YellowStone.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister
+            .create(ForgeRegistries.BLOCKS, Yellowstone.MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister
+            .create(ForgeRegistries.ITEMS, Yellowstone.MODID);
 
     public static final RegistryObject<Block> DIRT = BLOCKS.register("dirt", () -> new Block(
             AbstractBlock.Properties.create(Material.EARTH, MaterialColor.DIRT).hardnessAndResistance(0.5F)
@@ -85,43 +88,43 @@ public class BlockRegistry {
             AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F)));
 
     static {
-        ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("lavastone",
-                () -> new BlockItem(LAVASTONE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(LAVASTONE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_planks",
-                () -> new BlockItem(DOUGLAS_PLANKS.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_PLANKS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_fence",
-                () -> new BlockItem(DOUGLAS_FENCE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_FENCE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_fence_gate",
-                () -> new BlockItem(DOUGLAS_FENCE_GATE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_FENCE_GATE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_door",
-                () -> new BlockItem(DOUGLAS_DOOR.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_DOOR.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_trapdoor",
-                () -> new BlockItem(DOUGLAS_TRAPDOOR.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_TRAPDOOR.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_stairs",
-                () -> new BlockItem(DOUGLAS_STAIRS.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_STAIRS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_slab",
-                () -> new BlockItem(DOUGLAS_SLAB.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_SLAB.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_pressure_plate",
-                () -> new BlockItem(DOUGLAS_PRESSURE_PLATE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_PRESSURE_PLATE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_button",
-                () -> new BlockItem(DOUGLAS_BUTTON.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_BUTTON.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_leaves",
-                () -> new BlockItem(DOUGLAS_LEAVES.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_LEAVES.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_sapling",
-                () -> new BlockItem(DOUGLAS_SAPLING.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_SAPLING.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_log",
-                () -> new BlockItem(DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_LOG.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_wood",
-                () -> new BlockItem(DOUGLAS_WOOD.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(DOUGLAS_WOOD.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("stripped_douglas_log",
-                () -> new BlockItem(STRIPPED_DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(STRIPPED_DOUGLAS_LOG.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("stripped_douglas_wood",
-                () -> new BlockItem(STRIPPED_DOUGLAS_WOOD.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(STRIPPED_DOUGLAS_WOOD.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("copper_ore",
-                () -> new BlockItem(COPPER_ORE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(COPPER_ORE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("nickel_ore",
-                () -> new BlockItem(NICKEL_ORE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+                () -> new BlockItem(NICKEL_ORE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
     }
 
 }
