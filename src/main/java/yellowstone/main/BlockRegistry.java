@@ -1,8 +1,6 @@
 package yellowstone.main;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
@@ -19,8 +17,18 @@ public class BlockRegistry {
             AbstractBlock.Properties.create(Material.EARTH, MaterialColor.DIRT).hardnessAndResistance(0.5F)
                     .sound(SoundType.GROUND)));
 
+    public static final RegistryObject<Block> STONE = BLOCKS.register("stone", () -> new Block(
+            Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(1.5F, 6.0F)
+                    .sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> LEAVES = BLOCKS.register("leaves", () -> new LeavesBlock(
+            Block.Properties.create(Material.LEAVES, MaterialColor.GREEN).hardnessAndResistance(0.2F)
+                    .sound(SoundType.PLANT)));
+
     static {
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties()));
+        ITEMS.register("stone", () -> new BlockItem(DIRT.get(), new Item.Properties()));
+        ITEMS.register("leaves", () -> new BlockItem(DIRT.get(), new Item.Properties()));
     }
 
 }
