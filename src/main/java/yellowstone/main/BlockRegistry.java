@@ -32,11 +32,11 @@ public class BlockRegistry {
                             .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_DOOR = BLOCKS.register("douglas_door", () -> new DoorBlock(
             AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
-                    .sound(SoundType.WOOD)));
+                    .sound(SoundType.WOOD).notSolid()));
     public static final RegistryObject<Block> DOUGLAS_TRAPDOOR = BLOCKS.register("douglas_trapdoor",
             () -> new TrapDoorBlock(
                     AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
-                            .sound(SoundType.WOOD)));
+                            .sound(SoundType.WOOD).notSolid()));
     public static final RegistryObject<Block> DOUGLAS_STAIRS = BLOCKS.register("douglas_stairs",
             () -> new StairsBlock(() -> BlockRegistry.DOUGLAS_PLANKS.get().getDefaultState(),
                     AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
@@ -54,7 +54,7 @@ public class BlockRegistry {
                             .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_LEAVES = BLOCKS.register("douglas_leaves", () -> new LeavesBlock(
             Block.Properties.create(Material.LEAVES, MaterialColor.GREEN).hardnessAndResistance(0.2F)
-                    .sound(SoundType.PLANT)));
+                    .sound(SoundType.PLANT).notSolid()));
     public static final RegistryObject<Block> DOUGLAS_SAPLING = BLOCKS.register("douglas_sapling",
             () -> new SaplingBlock(new OakTree(),
                     AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly()
@@ -78,6 +78,11 @@ public class BlockRegistry {
             () -> new RotatedPillarBlock(
                     AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F)
                             .sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", () -> new OreBlock(
+            AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F)));
+
+    public static final RegistryObject<Block> NICKEL_ORE = BLOCKS.register("nickel_ore", () -> new OreBlock(
+            AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F)));
 
     static {
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(YellowStone.y_blocks)));
@@ -113,6 +118,10 @@ public class BlockRegistry {
                 () -> new BlockItem(STRIPPED_DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("stripped_douglas_wood",
                 () -> new BlockItem(STRIPPED_DOUGLAS_WOOD.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("copper_ore",
+                () -> new BlockItem(COPPER_ORE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("nickel_ore",
+                () -> new BlockItem(NICKEL_ORE.get(), new Item.Properties().group(YellowStone.y_blocks)));
     }
 
 }
