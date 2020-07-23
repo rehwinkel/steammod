@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "yellowstone:polished_lavastone"
+    }
+  },
+  "result": {
+    "item": "yellowstone:polished_lavastone_slab",
+    "count": 6
+  }
+}

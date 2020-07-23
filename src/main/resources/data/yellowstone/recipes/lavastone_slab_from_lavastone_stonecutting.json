@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "yellowstone:lavastone"
+  },
+  "result": "yellowstone:lavastone_slab",
+  "count": 2
+}
