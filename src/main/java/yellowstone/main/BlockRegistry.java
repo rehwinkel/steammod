@@ -78,6 +78,11 @@ public class BlockRegistry {
             () -> new RotatedPillarBlock(
                     AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F)
                             .sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> COPPER_ORE = BLOCKS.register("copper_ore", () -> new OreBlock(
+            AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F)));
+
+    public static final RegistryObject<Block> NICKEL_ORE = BLOCKS.register("nickel_ore", () -> new OreBlock(
+            AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F)));
 
     static {
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(YellowStone.y_blocks)));
@@ -113,6 +118,10 @@ public class BlockRegistry {
                 () -> new BlockItem(STRIPPED_DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("stripped_douglas_wood",
                 () -> new BlockItem(STRIPPED_DOUGLAS_WOOD.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("copper_ore",
+                () -> new BlockItem(COPPER_ORE.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("nickel_ore",
+                () -> new BlockItem(NICKEL_ORE.get(), new Item.Properties().group(YellowStone.y_blocks)));
     }
 
 }
