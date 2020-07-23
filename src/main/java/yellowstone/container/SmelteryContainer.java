@@ -26,9 +26,9 @@ public class SmelteryContainer extends Container {
         this.addSlot(new SlotItemHandler(input, 2, 56, 16));
         this.addSlot(new SlotItemHandler(input, 3, 74, 16));
 
-        this.addSlot(new SlotItemHandler(fuel, 0, 48, 53));
+        this.addSlot(new FuelSlot(fuel, 0, 48, 53));
 
-        this.addSlot(new FuelSlot(output, 0, 116, 35));
+        this.addSlot(new OutputSlot(output, 0, 116, 35));
 
         for (int i = 0; i < 9; i++) {
             this.addSlot(new Slot(player_inv, i, 8 + i * 18, 142));
