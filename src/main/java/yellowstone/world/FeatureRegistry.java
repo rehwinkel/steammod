@@ -7,7 +7,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import yellowstone.main.Yellowstone;
 
 public class FeatureRegistry {
+
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Yellowstone.MODID);
 
-    private static final RegistryObject<YellowstoneLakeFeature> LAKE = FEATURES.register("lake", () -> new YellowstoneLakeFeature());
+    public static final RegistryObject<YellowstoneLakeFeature> LAKE = FEATURES.register("lake", () -> new YellowstoneLakeFeature(YellowstoneLakeConfig.CODEC));
+
 }
