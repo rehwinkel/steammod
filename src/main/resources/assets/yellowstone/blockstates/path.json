@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "yellowstone:block/path"
+      },
+      {
+        "model": "yellowstone:block/path",
+        "y": 90
+      },
+      {
+        "model": "yellowstone:block/path",
+        "y": 180
+      },
+      {
+        "model": "yellowstone:block/path",
+        "y": 270
+      }
+    ]
+  }
+}
