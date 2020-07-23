@@ -1,6 +1,5 @@
 package yellowstone.main;
 
-import net.minecraft.block.WoodType;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -14,7 +13,7 @@ public class YellowStone {
     public static final ItemGroup y_blocks = new ItemGroup("yellowstone_blocks") {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(BlockRegistry.STONE.get());
+            return new ItemStack(BlockRegistry.LAVASTONE.get());
         }
     };
 
