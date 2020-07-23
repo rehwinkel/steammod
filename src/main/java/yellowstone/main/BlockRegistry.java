@@ -57,8 +57,8 @@ public class BlockRegistry {
                 () -> new BlockItem(DOUGLAS_STAIRS.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("douglas_slab",
                 () -> new BlockItem(DOUGLAS_SLAB.get(), new Item.Properties().group(YellowStone.y_blocks)));
-        ITEMS.register("stone", () -> new BlockItem(DIRT.get(), new Item.Properties()));
-        ITEMS.register("leaves", () -> new BlockItem(DIRT.get(), new Item.Properties()));
+        ITEMS.register("stone", () -> new BlockItem(STONE.get(), new Item.Properties()));
+        ITEMS.register("leaves", () -> new BlockItem(LEAVES.get(), new Item.Properties()));
     }
 
 }
