@@ -11,15 +11,18 @@ public class SmelteryRecipe {
 
     private final ItemStack[] input;
     private final ItemStack result;
+    private final int processTime;
 
-    public SmelteryRecipe(ItemStack[] input, ItemStack result) {
+    public SmelteryRecipe(ItemStack[] input, ItemStack result, int processTime) {
         this.input = input;
         this.result = result;
+        this.processTime = processTime;
     }
 
     public ItemStack getResult() {
         return this.result;
     }
+    public int getProcessTime() { return this.processTime; }
     public ItemStack[] getIngredients() { return this.input; }
 
     public boolean canCraft(ItemStackHandler ingredients) {
