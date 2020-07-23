@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "yellowstone:stripped_douglas_log"
+    }
+  },
+  "result": {
+    "item": "yellowstone:stripped_douglas_wood",
+    "count": 3
+  }
+}
