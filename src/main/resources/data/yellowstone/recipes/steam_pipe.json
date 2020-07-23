@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#O#",
+    "I I",
+    "#O#"
+  ],
+  "key": {
+    "#": {
+      "item": "yellowstone:brass_ingot"
+    },
+    "O": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "yellowstone:steam_pipe",
+    "count": 8
+  }
+}
