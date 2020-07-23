@@ -5,11 +5,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import yellowstone.block.DirtBlock;
 import yellowstone.block.GooseberryBushBlock;
+import yellowstone.block.SteamPipeBlock;
 import yellowstone.blocks.SmelteryBlock;
 import yellowstone.world.DouglasTree;
 
@@ -50,6 +52,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> POLISHED_LAVASTONE_STAIRS = BLOCKS.register("polished_lavastone_stairs", () -> new StairsBlock(() -> POLISHED_LAVASTONE.get().getDefaultState(), AbstractBlock.Properties.from(LAVASTONE.get())));
     public static final RegistryObject<Block> GOOSEBERRY_BUSH = BLOCKS.register("gooseberry_bush", () -> new GooseberryBushBlock(AbstractBlock.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> SMELTERY = BLOCKS.register("smeltery", () -> new SmelteryBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(1.5F, 6.0F).sound(SoundType.STONE)));
+    public static final RegistryObject<Block> STEAM_PIPE = BLOCKS.register("steam_pipe", () -> new SteamPipeBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).harvestLevel(0).harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F).sound(SoundType.METAL)));
 
     static {
         BLOCKS.register("potted_douglas_sapling", () -> new FlowerPotBlock(null, DOUGLAS_SAPLING, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
@@ -84,6 +87,7 @@ public class BlockRegistry {
         ITEMS.register("polished_lavastone_stairs", () -> new BlockItem(POLISHED_LAVASTONE_STAIRS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("path", () -> new BlockItem(PATH.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("smeltery", () -> new BlockItem(SMELTERY.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("steam_pipe", () -> new BlockItem(STEAM_PIPE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
     }
 
 }
