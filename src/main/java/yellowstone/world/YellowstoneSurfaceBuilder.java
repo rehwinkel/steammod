@@ -27,7 +27,7 @@ public class YellowstoneSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConf
 
     @Override
     public void buildSurface(Random random, IChunk chunkIn, Biome biomeIn, int x, int z, int startHeight, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, SurfaceBuilderConfig config) {
-        int height = startHeight;
+        int height = startHeight - 1;
         for (Layer l : layers) {
             int layerHeight = l.getSize() + random.nextInt(l.getRandom() + 1);
             for (int i = 0; i < layerHeight; i++) {
