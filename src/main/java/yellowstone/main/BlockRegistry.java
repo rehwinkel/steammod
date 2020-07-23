@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import yellowstone.block.GooseberryBushBlock;
 
 public class BlockRegistry {
 
@@ -43,11 +44,11 @@ public class BlockRegistry {
     public static final RegistryObject<Block> POLISHED_LAVASTONE = BLOCKS.register("polished_lavastone", () -> new Block(AbstractBlock.Properties.from(LAVASTONE.get())));
     public static final RegistryObject<Block> POLISHED_LAVASTONE_SLAB = BLOCKS.register("polished_lavastone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(LAVASTONE.get())));
     public static final RegistryObject<Block> POLISHED_LAVASTONE_STAIRS = BLOCKS.register("polished_lavastone_stairs", () -> new StairsBlock(() -> POLISHED_LAVASTONE.get().getDefaultState(), AbstractBlock.Properties.from(LAVASTONE.get())));
+    public static final RegistryObject<Block> GOOSEBERRY_BUSH = BLOCKS.register("gooseberry_bush", () -> new GooseberryBushBlock(AbstractBlock.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
+
 
     static {
         BLOCKS.register("potted_douglas_sapling", () -> new FlowerPotBlock(null, DOUGLAS_SAPLING, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
-        BLOCKS.register("sweet_berry_bush", () -> new SweetBerryBushBlock(AbstractBlock.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
-
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("lavastone", () -> new BlockItem(LAVASTONE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_planks", () -> new BlockItem(DOUGLAS_PLANKS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
