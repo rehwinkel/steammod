@@ -55,19 +55,29 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DOUGLAS_LEAVES = BLOCKS.register("douglas_leaves", () -> new LeavesBlock(
             Block.Properties.create(Material.LEAVES, MaterialColor.GREEN).hardnessAndResistance(0.2F)
                     .sound(SoundType.PLANT)));
-    public static final RegistryObject<Block> DOUGLAS_SAPLING = BLOCKS.register("douglas_sapling", () -> new SaplingBlock(
-            new OakTree(), AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().zeroHardnessAndResistance()
-                    .sound(SoundType.PLANT))); //TODO
-    public static final RegistryObject<Block> POTTED_DOUGLAS_SAPLING = BLOCKS.register("potted_douglas_sapling", () -> new FlowerPotBlock(
-            DOUGLAS_SAPLING.get(), AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
+    public static final RegistryObject<Block> DOUGLAS_SAPLING = BLOCKS.register("douglas_sapling",
+            () -> new SaplingBlock(new OakTree(),
+                    AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly()
+                            .zeroHardnessAndResistance().sound(SoundType.PLANT))); //TODO
+    public static final RegistryObject<Block> POTTED_DOUGLAS_SAPLING = BLOCKS.register("potted_douglas_sapling",
+            () -> new FlowerPotBlock(DOUGLAS_SAPLING.get(),
+                    AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
     public static final RegistryObject<Block> DOUGLAS_LOG = BLOCKS.register("douglas_log", () -> new RotatedPillarBlock(
-            Block.Properties.create(Material.WOOD, MaterialColor.BROWN)
-    ));
-    public static final RegistryObject<Block> DOUGLAS_STRIPPED = BLOCKS.register("douglas_stripped", () -> new Block(
-            Block.Properties.create(Material.WOOD, MaterialColor.BROWN)
-    ));
-    public static final RegistryObject<Block> DOUGLAS_WOOD = BLOCKS.register("douglas_wood", () -> new RotatedPillarBlock(
-            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F).sound(SoundType.WOOD)));
+            Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F)
+                    .sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> STRIPPED_DOUGLAS_LOG = BLOCKS.register("stripped_douglas_log",
+            () -> new RotatedPillarBlock(
+                    Block.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F)
+                            .sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> STRIPPED_DOUGLAS_WOOD = BLOCKS.register("stripped_douglas_wood",
+            () -> new RotatedPillarBlock(
+                    AbstractBlock.Properties.create(Material.WOOD, MaterialColor.ADOBE).hardnessAndResistance(2.0F)
+                            .sound(SoundType.WOOD)));
+
+    public static final RegistryObject<Block> DOUGLAS_WOOD = BLOCKS.register("douglas_wood",
+            () -> new RotatedPillarBlock(
+                    AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F)
+                            .sound(SoundType.WOOD)));
 
     static {
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(YellowStone.y_blocks)));
@@ -97,10 +107,12 @@ public class BlockRegistry {
                 () -> new BlockItem(DOUGLAS_SAPLING.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("douglas_log",
                 () -> new BlockItem(DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
-        ITEMS.register("douglas_stripped",
-                () -> new BlockItem(DOUGLAS_STRIPPED.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("douglas_wood",
                 () -> new BlockItem(DOUGLAS_WOOD.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("stripped_douglas_log",
+                () -> new BlockItem(STRIPPED_DOUGLAS_LOG.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("stripped_douglas_wood",
+                () -> new BlockItem(STRIPPED_DOUGLAS_WOOD.get(), new Item.Properties().group(YellowStone.y_blocks)));
     }
 
 }

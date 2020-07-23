@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "minecraft:block/potted_yellowstone:douglas_sapling"
+      "model": "yellowstone:block/potted_douglas_sapling"
     }
   }
 }
