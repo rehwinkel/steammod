@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "yellowstone:block/grass"
+      },
+      {
+        "model": "yellowstone:block/grass",
+        "y": 90
+      },
+      {
+        "model": "yellowstone:block/grass",
+        "y": 180
+      },
+      {
+        "model": "yellowstone:block/grass",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "yellowstone:block/grass_snow"
+    }
+  }
+}

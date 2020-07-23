@@ -14,23 +14,21 @@ import yellowstone.world.YellowstoneSurfaceBuilder;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class WorldRegistry {
 
-    public static final DeferredRegister<SurfaceBuilder<?>> SURFACE_BUILDERS = DeferredRegister
-            .create(ForgeRegistries.SURFACE_BUILDERS, Yellowstone.MODID);
-    public static final DeferredRegister<Biome> BIOMES = DeferredRegister
-            .create(ForgeRegistries.BIOMES, Yellowstone.MODID);
+    public static final DeferredRegister<SurfaceBuilder<?>> SURFACE_BUILDERS = DeferredRegister.create(ForgeRegistries.SURFACE_BUILDERS, Yellowstone.MODID);
+    public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, Yellowstone.MODID);
 
     public static YellowstoneSurfaceBuilder YELLOWSTONE_SURFACE;
     public static YellowstoneBiome YELLOWSTONE_BIOME;
 
     @SubscribeEvent
     public static void registerSurfaceBuilders(RegistryEvent.Register<SurfaceBuilder<?>> event) {
-        YELLOWSTONE_SURFACE = new YellowstoneSurfaceBuilder(SurfaceBuilderConfig.field_237203_a_);
         YELLOWSTONE_SURFACE.setRegistryName("yellowstone");
         event.getRegistry().registerAll(YELLOWSTONE_SURFACE);
     }
 
     @SubscribeEvent
     public static void registerBiomes(RegistryEvent.Register<Biome> event) {
+        YELLOWSTONE_SURFACE = new YellowstoneSurfaceBuilder(SurfaceBuilderConfig.field_237203_a_);
         YELLOWSTONE_BIOME = new YellowstoneBiome();
         YELLOWSTONE_BIOME.setRegistryName("yellowstone");
         event.getRegistry().registerAll(YELLOWSTONE_BIOME);
