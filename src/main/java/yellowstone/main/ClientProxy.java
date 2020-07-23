@@ -1,5 +1,6 @@
 package yellowstone.main;
 
+import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.BlockItem;
@@ -9,6 +10,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import yellowstone.screen.SmelteryScreen;
 
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT, modid = Yellowstone.MODID)
 public class ClientProxy implements IProxy {
@@ -35,6 +37,7 @@ public class ClientProxy implements IProxy {
         RenderTypeLookup.setRenderLayer(BlockRegistry.DOUGLAS_LEAVES.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.GRASS.get(), RenderType.getCutoutMipped());
         RenderTypeLookup.setRenderLayer(BlockRegistry.DOUGLAS_SAPLING.get(), RenderType.getCutout());
+        ScreenManager.registerFactory(ContainerRegistry.SMELTERY.get(), SmelteryScreen::new);
         RenderTypeLookup.setRenderLayer(BlockRegistry.GOOSEBERRY_BUSH.get(), RenderType.getCutout());
     }
 
