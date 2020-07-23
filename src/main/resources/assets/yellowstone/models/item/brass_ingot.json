@@ -1,5 +1,5 @@
 {
-  "parent": "items/generated",
+  "parent": "item/generated",
   "textures": {
     "layer0": "yellowstone:item/brass_ingot"
   }
