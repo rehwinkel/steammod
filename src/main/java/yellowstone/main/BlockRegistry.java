@@ -20,24 +20,27 @@ public class BlockRegistry {
             Block.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(1.5F, 6.0F)
                     .sound(SoundType.STONE)));
     public static final RegistryObject<Block> DOUGLAS_PLANKS = BLOCKS.register("douglas_planks", () -> new Block(
-            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F)
+            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
                     .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_FENCE = BLOCKS.register("douglas_fence", () -> new FenceBlock(
-            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F)
+            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
                     .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_FENCE_GATE = BLOCKS.register("douglas_fence_gate",
             () -> new FenceGateBlock(
-                    AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F)
+                    AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
                             .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_DOOR = BLOCKS.register("douglas_door", () -> new DoorBlock(
-            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F)
+            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> DOUGLAS_TRAPDOOR = BLOCKS.register("douglas_trapdoor", () -> new TrapDoorBlock(
+            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
                     .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_STAIRS = BLOCKS.register("douglas_stairs",
             () -> new StairsBlock(() -> BlockRegistry.DOUGLAS_PLANKS.get().getDefaultState(),
-                    AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F)
+                    AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
                             .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_SLAB = BLOCKS.register("douglas_slab", () -> new SlabBlock(
-            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.GRAY).hardnessAndResistance(2.0F, 3.0F)
+            AbstractBlock.Properties.create(Material.WOOD, MaterialColor.WOOD).hardnessAndResistance(2.0F, 3.0F)
                     .sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DOUGLAS_LEAVES = BLOCKS.register("douglas_leaves", () -> new LeavesBlock(
             Block.Properties.create(Material.LEAVES, MaterialColor.GREEN).hardnessAndResistance(0.2F)
@@ -51,6 +54,8 @@ public class BlockRegistry {
                 () -> new BlockItem(DOUGLAS_FENCE_GATE.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("douglas_door",
                 () -> new BlockItem(DOUGLAS_DOOR.get(), new Item.Properties().group(YellowStone.y_blocks)));
+        ITEMS.register("douglas_trapdoor",
+                () -> new BlockItem(DOUGLAS_TRAPDOOR.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("douglas_stairs",
                 () -> new BlockItem(DOUGLAS_STAIRS.get(), new Item.Properties().group(YellowStone.y_blocks)));
         ITEMS.register("douglas_slab",

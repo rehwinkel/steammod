@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "minecraft:block/yellowstone:douglas_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/yellowstone:douglas_planks"
+    },
+    "type=top": {
+      "model": "minecraft:block/yellowstone:douglas_slab_top"
+    }
+  }
+}
