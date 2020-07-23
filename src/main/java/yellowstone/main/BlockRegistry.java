@@ -87,6 +87,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> NICKEL_ORE = BLOCKS.register("nickel_ore", () -> new OreBlock(
             AbstractBlock.Properties.create(Material.ROCK).func_235861_h_().hardnessAndResistance(3.0F, 3.0F)));
 
+    public static final RegistryObject<Block> BRASS_BLOCK = BLOCKS.register("brass_block", () -> new Block(
+            AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).func_235861_h_().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> GOOSEBERRY_BUSH = BLOCKS.register("sweet_berry_bush", () -> new SweetBerryBushBlock(
+            AbstractBlock.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
+
     static {
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("lavastone",
@@ -125,6 +131,8 @@ public class BlockRegistry {
                 () -> new BlockItem(COPPER_ORE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("nickel_ore",
                 () -> new BlockItem(NICKEL_ORE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("brass_block",
+                () -> new BlockItem(BRASS_BLOCK.get(), new Item.Properties().group(Yellowstone.y_blocks)));
     }
 
 }

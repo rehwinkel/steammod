@@ -18,6 +18,9 @@
   "block.yellowstone.douglas_log": "Douglas Log",
   "block.yellowstone.copper_ore": "Copper Ore",
   "block.yellowstone.nickel_ore": "Nickel Ore",
+  "block.yellowstone.brass_block": "Brass Block",
+  "item.yellowstone.gooseberries": "Gooseberries",
+  "item.yellowstone.brass_ingot": "Brass Ingot",
   "itemGroup.yellowstone_blocks": "Yellowstone Blocks",
   "biome.yellowstone.yellowstone": "Yellowstone"
 }
