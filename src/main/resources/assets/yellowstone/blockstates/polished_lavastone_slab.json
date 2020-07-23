@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "yellowstone:block/polished_lavastone_slab"
+    },
+    "type=double": {
+      "model": "yellowstone:block/polished_lavastone"
+    },
+    "type=top": {
+      "model": "yellowstone:block/polished_lavastone_slab_top"
+    }
+  }
+}

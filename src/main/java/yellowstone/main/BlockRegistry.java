@@ -36,6 +36,12 @@ public class BlockRegistry {
     public static final RegistryObject<Block> NICKEL_ORE = BLOCKS.register("nickel_ore", () -> new OreBlock(AbstractBlock.Properties.create(Material.ROCK).setRequiresTool().hardnessAndResistance(3.0F, 3.0F)));
     public static final RegistryObject<Block> BRASS_BLOCK = BLOCKS.register("brass_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> GRASS = BLOCKS.register("grass", () -> new GrassBlock(AbstractBlock.Properties.create(Material.ORGANIC).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.PLANT)));
+    public static final RegistryObject<Block> LAVASTONE_SLAB = BLOCKS.register("lavastone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(LAVASTONE.get())));
+    public static final RegistryObject<Block> LAVASTONE_WALL = BLOCKS.register("lavastone_wall", () -> new WallBlock(AbstractBlock.Properties.from(LAVASTONE.get())));
+    public static final RegistryObject<Block> LAVASTONE_STAIRS = BLOCKS.register("lavastone_stairs", () -> new StairsBlock(() -> LAVASTONE.get().getDefaultState(), AbstractBlock.Properties.from(LAVASTONE.get())));
+    public static final RegistryObject<Block> POLISHED_LAVASTONE = BLOCKS.register("polished_lavastone", () -> new Block(AbstractBlock.Properties.from(LAVASTONE.get())));
+    public static final RegistryObject<Block> POLISHED_LAVASTONE_SLAB = BLOCKS.register("polished_lavastone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(LAVASTONE.get())));
+    public static final RegistryObject<Block> POLISHED_LAVASTONE_STAIRS = BLOCKS.register("polished_lavastone_stairs", () -> new StairsBlock(() -> POLISHED_LAVASTONE.get().getDefaultState(), AbstractBlock.Properties.from(LAVASTONE.get())));
 
     static {
         BLOCKS.register("potted_douglas_sapling", () -> new FlowerPotBlock(null, DOUGLAS_SAPLING, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
@@ -62,6 +68,12 @@ public class BlockRegistry {
         ITEMS.register("nickel_ore", () -> new BlockItem(NICKEL_ORE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("brass_block", () -> new BlockItem(BRASS_BLOCK.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("grass", () -> new BlockItem(GRASS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("lavastone_slab", () -> new BlockItem(LAVASTONE_SLAB.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("lavastone_stairs", () -> new BlockItem(LAVASTONE_STAIRS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("lavastone_wall", () -> new BlockItem(LAVASTONE_WALL.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("polished_lavastone", () -> new BlockItem(POLISHED_LAVASTONE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("polished_lavastone_slab", () -> new BlockItem(POLISHED_LAVASTONE_SLAB.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("polished_lavastone_stairs", () -> new BlockItem(POLISHED_LAVASTONE_STAIRS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
     }
 
 }
