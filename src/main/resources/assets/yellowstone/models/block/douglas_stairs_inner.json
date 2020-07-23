@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/inner_stairs",
   "textures": {
-    "bottom": "minecraft:block/acacia_planks",
-    "top": "minecraft:block/acacia_planks",
-    "side": "minecraft:block/acacia_planks"
+    "bottom": "yellowstone:block/douglas_planks",
+    "top": "yellowstone:block/douglas_planks",
+    "side": "yellowstone:block/douglas_planks"
   }
 }
