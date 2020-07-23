@@ -24,5 +24,11 @@
   "item.yellowstone.brass_ingot": "Messingbarren",
   "block.yellowstone.brass_block": "Messingblock",
   "item.yellowstone.gooseberries": "Stachelbeeren",
-  "itemGroup.yellowstone_blocks": "Yellowstone Blöcke"
+  "itemGroup.yellowstone_blocks": "Yellowstone Blöcke",
+  "block.yellowstone.polished_lavastone": "Polierter Lavastein",
+  "block.yellowstone.polished_lavastone_slab": "Polierte Lavasteinstufe",
+  "block.yellowstone.polished_lavastone_stairs": "Polierte Lavasteintreppe",
+  "block.yellowstone.lavastone_wall": "Lavasteinmauer",
+  "block.yellowstone.lavastone_slab": "Lavasteinstufe",
+  "block.yellowstone.lavastone_stairs": "Lavasteintreppe"
 }

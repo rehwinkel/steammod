@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "yellowstone:block/lavastone",
+    "top": "yellowstone:block/lavastone",
+    "side": "yellowstone:block/lavastone"
+  }
+}

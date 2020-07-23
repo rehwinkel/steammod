@@ -24,5 +24,11 @@
   "item.yellowstone.gooseberries": "Gooseberries",
   "item.yellowstone.brass_ingot": "Brass Ingot",
   "itemGroup.yellowstone_blocks": "Yellowstone Blocks",
-  "biome.yellowstone.yellowstone": "Yellowstone"
+  "biome.yellowstone.yellowstone": "Yellowstone",
+  "block.yellowstone.polished_lavastone": "Polished Lavastone",
+  "block.yellowstone.polished_lavastone_slab": "Polished Lavastone Slab",
+  "block.yellowstone.polished_lavastone_stairs": "Polished Lavastone Stairs",
+  "block.yellowstone.lavastone_wall": "Lavastone Wall",
+  "block.yellowstone.lavastone_slab": "Lavastone Slab",
+  "block.yellowstone.lavastone_stairs": "Lavastone Stairs"
 }
