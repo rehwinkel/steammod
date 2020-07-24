@@ -36,6 +36,8 @@ public class ClientProxy implements IProxy {
     @SubscribeEvent
     public static void onBakeModels(ModelBakeEvent event) {
         override(event, BlockRegistry.STEAM_PIPE.get().getDefaultState().with(SteamPipeBlock.DOWN, true).with(SteamPipeBlock.UP, true), state -> event.getModelLoader().getBakedModel(STRAIGHT_PIPE_LOCATION, ModelRotation.X0_Y0, event.getModelLoader().getSpriteMap()::getSprite));
+        override(event, BlockRegistry.STEAM_PIPE.get().getDefaultState().with(SteamPipeBlock.WEST, true).with(SteamPipeBlock.EAST, true), state -> event.getModelLoader().getBakedModel(STRAIGHT_PIPE_LOCATION, ModelRotation.X90_Y90, event.getModelLoader().getSpriteMap()::getSprite));
+        override(event, BlockRegistry.STEAM_PIPE.get().getDefaultState().with(SteamPipeBlock.NORTH, true).with(SteamPipeBlock.SOUTH, true), state -> event.getModelLoader().getBakedModel(STRAIGHT_PIPE_LOCATION, ModelRotation.X90_Y0, event.getModelLoader().getSpriteMap()::getSprite));
     }
 
     private static void override(ModelBakeEvent event, BlockState state, Function<BlockState, IBakedModel> f) {
