@@ -2,7 +2,7 @@
   "multipart": [
     {
       "apply": {
-        "model": "minecraft:block/oak_fence_post"
+        "model": "yellowstone:block/steam_pipe_core"
       }
     },
     {
@@ -10,8 +10,8 @@
         "north": "true"
       },
       "apply": {
-        "model": "minecraft:block/oak_fence_side",
-        "uvlock": true
+        "model": "yellowstone:block/steam_pipe_arm",
+        "x": 270
       }
     },
     {
@@ -19,9 +19,9 @@
         "east": "true"
       },
       "apply": {
-        "model": "minecraft:block/oak_fence_side",
-        "y": 90,
-        "uvlock": true
+        "model": "yellowstone:block/steam_pipe_arm",
+        "x": 90,
+        "y": 270
       }
     },
     {
@@ -29,9 +29,8 @@
         "south": "true"
       },
       "apply": {
-        "model": "minecraft:block/oak_fence_side",
-        "y": 180,
-        "uvlock": true
+        "model": "yellowstone:block/steam_pipe_arm",
+        "x": 90
       }
     },
     {
@@ -39,9 +38,26 @@
         "west": "true"
       },
       "apply": {
-        "model": "minecraft:block/oak_fence_side",
-        "y": 270,
-        "uvlock": true
+        "model": "yellowstone:block/steam_pipe_arm",
+        "x": 90,
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "down": "true"
+      },
+      "apply": {
+        "model": "yellowstone:block/steam_pipe_arm"
+      }
+    },
+    {
+      "when": {
+        "up": "true"
+      },
+      "apply": {
+        "model": "yellowstone:block/steam_pipe_arm",
+        "x": 180
       }
     }
   ]

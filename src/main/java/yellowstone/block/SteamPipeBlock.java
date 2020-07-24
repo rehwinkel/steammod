@@ -10,9 +10,13 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ITag;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import yellowstone.main.Yellowstone;
@@ -31,16 +35,82 @@ public class SteamPipeBlock extends Block {
 
     protected static final Map<Direction, BooleanProperty> FACING_TO_PROPERTY_MAP = SixWayBlock.FACING_TO_PROPERTY_MAP;
 
+    private final VoxelShape[] shapes;
+
     public SteamPipeBlock(Properties properties) {
         super(properties);
+        shapes = new VoxelShape[64];
+        for (byte i = 0; i < 64; i++) {
+            shapes[i] = makeShape(6.0, (i & 0b1) > 0, (i & 0b10) > 0, (i & 0b100) > 0, (i & 0b1000) > 0, (i & 0b10000) > 0, (i & 0b100000) > 0);
+        }
     }
 
-    public boolean canConnect(BlockState state, boolean sideSolid, Direction direction) {
+    private VoxelShape makeShape(double thickness, boolean north, boolean south, boolean east, boolean west, boolean up, boolean down) {
+        double tStart = (16.0 - thickness) / 2.0;
+        double tEnd = (16.0 - thickness) / 2.0 + thickness;
+        VoxelShape shapeCore = Block.makeCuboidShape(tStart, tStart, tStart, tEnd, tEnd, tEnd);
+        VoxelShape shapeWest = Block.makeCuboidShape(0, tStart, tStart, tStart, tEnd, tEnd);
+        VoxelShape shapeEast = Block.makeCuboidShape(tEnd, tStart, tStart, 16, tEnd, tEnd);
+        VoxelShape shapeNorth = Block.makeCuboidShape(tStart, tStart, 0, tEnd, tEnd, tStart);
+        VoxelShape shapeSouth = Block.makeCuboidShape(tStart, tStart, tEnd, tEnd, tEnd, 16);
+        VoxelShape shapeDown = Block.makeCuboidShape(tStart, 0, tStart, tEnd, tStart, tEnd);
+        VoxelShape shapeUp = Block.makeCuboidShape(tStart, tEnd, tStart, tEnd, 16, tEnd);
+        if (west) {
+            shapeCore = VoxelShapes.or(shapeCore, shapeWest);
+        }
+        if (east) {
+            shapeCore = VoxelShapes.or(shapeCore, shapeEast);
+        }
+        if (south) {
+            shapeCore = VoxelShapes.or(shapeCore, shapeSouth);
+        }
+        if (north) {
+            shapeCore = VoxelShapes.or(shapeCore, shapeNorth);
+        }
+        if (down) {
+            shapeCore = VoxelShapes.or(shapeCore, shapeDown);
+        }
+        if (up) {
+            shapeCore = VoxelShapes.or(shapeCore, shapeUp);
+        }
+        return shapeCore;
+    }
+
+    private VoxelShape getFromShapes(boolean north, boolean south, boolean east, boolean west, boolean up, boolean down) {
+        byte i = 0;
+        if (north) {
+            i |= 0b1;
+        }
+        if (south) {
+            i |= 0b10;
+        }
+        if (east) {
+            i |= 0b100;
+        }
+        if (west) {
+            i |= 0b1000;
+        }
+        if (up) {
+            i |= 0b10000;
+        }
+        if (down) {
+            i |= 0b100000;
+        }
+        return shapes[i];
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+        return getFromShapes(state.get(NORTH), state.get(SOUTH), state.get(EAST), state.get(WEST), state.get(UP), state.get(DOWN));
+    }
+
+    public boolean canConnect(BlockState state) {
         return this.isBlockPipe(state.getBlock());
     }
 
     private boolean isBlockPipe(Block block) {
-        return block.isIn(BlockTags.getCollection().getOrCreate(new ResourceLocation(Yellowstone.MODID, "pipe_connect")));
+        ITag<Block> tag = BlockTags.getCollection().getOrCreate(new ResourceLocation(Yellowstone.MODID, "pipe_connect"));
+        return block.isIn(tag);
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
@@ -59,8 +129,7 @@ public class SteamPipeBlock extends Block {
         BlockState westState = iblockreader.getBlockState(westPos);
         BlockState downState = iblockreader.getBlockState(downPos);
         BlockState upState = iblockreader.getBlockState(upPos);
-        return super.getStateForPlacement(context).with(NORTH, this.canConnect(northState, northState.isSolidSide(iblockreader, northPos, Direction.SOUTH), Direction.SOUTH)).with(EAST, this.canConnect(eastState, eastState.isSolidSide(iblockreader, eastPos, Direction.WEST), Direction.WEST)).with(SOUTH, this.canConnect(southState, southState.isSolidSide(iblockreader, southPos, Direction.NORTH), Direction.NORTH))
-                .with(WEST, this.canConnect(westState, westState.isSolidSide(iblockreader, westPos, Direction.EAST), Direction.EAST)).with(DOWN, this.canConnect(southState, downState.isSolidSide(iblockreader, downPos, Direction.UP), Direction.UP)).with(UP, this.canConnect(westState, upState.isSolidSide(iblockreader, upPos, Direction.DOWN), Direction.DOWN)).with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
+        return super.getStateForPlacement(context).with(NORTH, this.canConnect(northState)).with(EAST, this.canConnect(eastState)).with(SOUTH, this.canConnect(southState)).with(WEST, this.canConnect(westState)).with(DOWN, this.canConnect(downState)).with(UP, this.canConnect(upState)).with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
     }
 
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
@@ -68,7 +137,7 @@ public class SteamPipeBlock extends Block {
             worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
         }
 
-        return facing.getAxis().getPlane() == Direction.Plane.HORIZONTAL ? stateIn.with(FACING_TO_PROPERTY_MAP.get(facing), Boolean.valueOf(this.canConnect(facingState, facingState.isSolidSide(worldIn, facingPos, facing.getOpposite()), facing.getOpposite()))) : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return stateIn.with(FACING_TO_PROPERTY_MAP.get(facing), this.canConnect(facingState));
     }
 
     @Override

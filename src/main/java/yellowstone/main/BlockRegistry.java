@@ -11,6 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import yellowstone.block.DirtBlock;
 import yellowstone.block.GooseberryBushBlock;
+import yellowstone.block.PathBlock;
 import yellowstone.block.SteamPipeBlock;
 import yellowstone.blocks.SmelteryBlock;
 import yellowstone.world.DouglasTree;
@@ -43,7 +44,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> COPPER_BLOCK = BLOCKS.register("copper_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> NICKEL_BLOCK = BLOCKS.register("nickel_block", () -> new Block(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).setRequiresTool().hardnessAndResistance(3.0F, 6.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> GRASS = BLOCKS.register("grass", () -> new yellowstone.block.GrassBlock(AbstractBlock.Properties.create(Material.ORGANIC).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.PLANT)));
-    public static final RegistryObject<Block> PATH = BLOCKS.register("path", () -> new GrassPathBlock(AbstractBlock.Properties.create(Material.ORGANIC).tickRandomly().hardnessAndResistance(0.6F).sound(SoundType.PLANT)));
+    public static final RegistryObject<Block> PATH = BLOCKS.register("path", () -> new PathBlock(AbstractBlock.Properties.create(Material.ORGANIC).hardnessAndResistance(0.65F).sound(SoundType.PLANT)));
     public static final RegistryObject<Block> LAVASTONE_SLAB = BLOCKS.register("lavastone_slab", () -> new SlabBlock(AbstractBlock.Properties.from(LAVASTONE.get())));
     public static final RegistryObject<Block> LAVASTONE_WALL = BLOCKS.register("lavastone_wall", () -> new WallBlock(AbstractBlock.Properties.from(LAVASTONE.get())));
     public static final RegistryObject<Block> LAVASTONE_STAIRS = BLOCKS.register("lavastone_stairs", () -> new StairsBlock(() -> LAVASTONE.get().getDefaultState(), AbstractBlock.Properties.from(LAVASTONE.get())));
