@@ -15,8 +15,7 @@ public class YellowstoneBiome extends Biome {
         super((new Biome.Builder()).surfaceBuilder(WorldRegistry.YELLOWSTONE_SURFACE, SurfaceBuilder.AIR_CONFIG).precipitation(RainType.RAIN).category(Category.EXTREME_HILLS).depth(0.25F).scale(0.1F).temperature(1.2F).downfall(0.0F).func_235097_a_((new BiomeAmbience.Builder()).func_235246_b_(4159204).func_235248_c_(329011).func_235239_a_(12638463).func_235243_a_(MoodSoundAmbience.field_235027_b_).func_235238_a_()).parent(null));
         this.func_235063_a_(DefaultBiomeFeatures.field_235182_t_); //villages
         this.func_235063_a_(DefaultBiomeFeatures.field_235134_a_); //pillagers
-        DefaultBiomeFeatures.func_235196_b_(this);
-        this.func_235063_a_(DefaultBiomeFeatures.field_235187_y_); //ruined_portal
+        DefaultBiomeFeatures.func_235196_b_(this); //stronghold and mineshaft
         DefaultBiomeFeatures.addCarvers(this);
         DefaultBiomeFeatures.addStoneVariants(this);
         DefaultBiomeFeatures.addOres(this);
@@ -25,6 +24,7 @@ public class YellowstoneBiome extends Biome {
         DefaultBiomeFeatures.addReedsAndPumpkins(this);
         DefaultBiomeFeatures.addSprings(this);
         DefaultBiomeFeatures.addDoubleFlowers(this);
+        DefaultBiomeFeatures.addDefaultFlowers(this);
         DefaultBiomeFeatures.addGrass(this);
         DefaultBiomeFeatures.addFreezeTopLayer(this);
         this.addSpawn(EntityClassification.CREATURE, new Biome.SpawnListEntry(EntityType.SHEEP, 12, 4, 4));
