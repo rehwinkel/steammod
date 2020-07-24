@@ -12,7 +12,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import yellowstone.item.AddPathingShovelItem;
 import yellowstone.item.AddStrippingAxeItem;
 import yellowstone.network.PacketHandler;
-import yellowstone.world.FeatureRegistry;
 import yellowstone.world.WorldGen;
 
 @Mod(Yellowstone.MODID)
@@ -33,7 +32,7 @@ public class Yellowstone {
         BlockRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BlockRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ItemRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        FeatureRegistry.FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        WorldRegistry.FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
         TileEntityRegistry.TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ContainerRegistry.CONTAINERS.register(FMLJavaModLoadingContext.get().getModEventBus());
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
@@ -51,6 +50,7 @@ public class Yellowstone {
             }
             WorldGen.addDouglasTree(WorldRegistry.YELLOWSTONE_BIOME);
             WorldGen.addYellowstoneLakes(WorldRegistry.YELLOWSTONE_BIOME);
+            WorldGen.addSomeBirchTrees(WorldRegistry.YELLOWSTONE_BIOME);
         });
         AddPathingShovelItem.addPathing();
         AddStrippingAxeItem.addStripping();
