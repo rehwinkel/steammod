@@ -1,5 +1,6 @@
 package yellowstone.world;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.block.trees.Tree;
 import net.minecraft.world.gen.feature.BaseTreeFeatureConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
