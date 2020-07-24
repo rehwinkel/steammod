@@ -39,6 +39,7 @@ public class SteamPipeBlock extends Block {
 
     public SteamPipeBlock(Properties properties) {
         super(properties);
+        this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(UP, false).with(DOWN, false).with(WATERLOGGED, false));
         shapes = new VoxelShape[64];
         for (byte i = 0; i < 64; i++) {
             shapes[i] = makeShape(6.0, (i & 0b1) > 0, (i & 0b10) > 0, (i & 0b100) > 0, (i & 0b1000) > 0, (i & 0b10000) > 0, (i & 0b100000) > 0);

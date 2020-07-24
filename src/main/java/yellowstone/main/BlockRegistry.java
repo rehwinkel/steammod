@@ -5,6 +5,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -54,9 +56,20 @@ public class BlockRegistry {
     public static final RegistryObject<Block> GOOSEBERRY_BUSH = BLOCKS.register("gooseberry_bush", () -> new GooseberryBushBlock(AbstractBlock.Properties.create(Material.PLANTS).tickRandomly().doesNotBlockMovement().sound(SoundType.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> SMELTERY = BLOCKS.register("smeltery", () -> new SmelteryBlock(AbstractBlock.Properties.create(Material.ROCK, MaterialColor.STONE).hardnessAndResistance(1.5F, 6.0F).sound(SoundType.STONE)));
     public static final RegistryObject<Block> STEAM_PIPE = BLOCKS.register("steam_pipe", () -> new SteamPipeBlock(AbstractBlock.Properties.create(Material.IRON, MaterialColor.GOLD).harvestLevel(0).harvestTool(ToolType.PICKAXE).hardnessAndResistance(1.5F, 6.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> PHLOX = BLOCKS.register("phlox", () -> new FlowerBlock(Effects.FIRE_RESISTANCE, 10, AbstractBlock.Properties.create(Material.PLANTS).doesNotBlockMovement().zeroHardnessAndResistance().sound(SoundType.PLANT)));
+
+    public static final RegistryObject<Block> POTTED_DOUGLAS_SAPLING = BLOCKS.register("potted_douglas_sapling", () -> {
+        FlowerPotBlock block = new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, DOUGLAS_SAPLING, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid());
+        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(new ResourceLocation(Yellowstone.MODID, "douglas_sapling"), () -> block);
+        return block;
+    });
+    public static final RegistryObject<Block> POTTED_PHLOX = BLOCKS.register("potted_phlox", () -> {
+        FlowerPotBlock block = new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, PHLOX, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid());
+        ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(new ResourceLocation(Yellowstone.MODID, "phlox"), () -> block);
+        return block;
+    });
 
     static {
-        BLOCKS.register("potted_douglas_sapling", () -> new FlowerPotBlock(null, DOUGLAS_SAPLING, AbstractBlock.Properties.create(Material.MISCELLANEOUS).zeroHardnessAndResistance().notSolid()));
         ITEMS.register("dirt", () -> new BlockItem(DIRT.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("lavastone", () -> new BlockItem(LAVASTONE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("douglas_planks", () -> new BlockItem(DOUGLAS_PLANKS.get(), new Item.Properties().group(Yellowstone.y_blocks)));
@@ -89,6 +102,7 @@ public class BlockRegistry {
         ITEMS.register("path", () -> new BlockItem(PATH.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("smeltery", () -> new BlockItem(SMELTERY.get(), new Item.Properties().group(Yellowstone.y_blocks)));
         ITEMS.register("steam_pipe", () -> new BlockItem(STEAM_PIPE.get(), new Item.Properties().group(Yellowstone.y_blocks)));
+        ITEMS.register("phlox", () -> new BlockItem(PHLOX.get(), new Item.Properties().group(Yellowstone.y_blocks)));
     }
 
 }
