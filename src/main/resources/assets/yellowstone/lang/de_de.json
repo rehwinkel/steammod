@@ -35,5 +35,6 @@
   "block.yellowstone.lavastone_wall": "Lavasteinmauer",
   "block.yellowstone.lavastone_slab": "Lavasteinstufe",
   "block.yellowstone.lavastone_stairs": "Lavasteintreppe",
-  "block.yellowstone.smeltery": "Schmelzerei"
+  "block.yellowstone.smeltery": "Schmelzerei",
+  "block.yellowstone.phlox": "Flammenblume"
 }

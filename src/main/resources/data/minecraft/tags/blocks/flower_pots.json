@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "yellowstone:potted_douglas_sapling"
+    "yellowstone:potted_douglas_sapling",
+    "yellowstone:potted_phlox"
   ]
 }
