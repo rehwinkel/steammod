@@ -10,6 +10,7 @@ import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ITag;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -35,12 +36,13 @@ public class SteamPipeBlock extends Block {
         super(properties);
     }
 
-    public boolean canConnect(BlockState state, boolean sideSolid, Direction direction) {
+    public boolean canConnect(BlockState state) {
         return this.isBlockPipe(state.getBlock());
     }
 
     private boolean isBlockPipe(Block block) {
-        return block.isIn(BlockTags.getCollection().getOrCreate(new ResourceLocation(Yellowstone.MODID, "pipe_connect")));
+        ITag<Block> tag = BlockTags.getCollection().getOrCreate(new ResourceLocation(Yellowstone.MODID, "pipe_connect"));
+        return block.isIn(tag);
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
@@ -59,8 +61,7 @@ public class SteamPipeBlock extends Block {
         BlockState westState = iblockreader.getBlockState(westPos);
         BlockState downState = iblockreader.getBlockState(downPos);
         BlockState upState = iblockreader.getBlockState(upPos);
-        return super.getStateForPlacement(context).with(NORTH, this.canConnect(northState, northState.isSolidSide(iblockreader, northPos, Direction.SOUTH), Direction.SOUTH)).with(EAST, this.canConnect(eastState, eastState.isSolidSide(iblockreader, eastPos, Direction.WEST), Direction.WEST)).with(SOUTH, this.canConnect(southState, southState.isSolidSide(iblockreader, southPos, Direction.NORTH), Direction.NORTH))
-                .with(WEST, this.canConnect(westState, westState.isSolidSide(iblockreader, westPos, Direction.EAST), Direction.EAST)).with(DOWN, this.canConnect(southState, downState.isSolidSide(iblockreader, downPos, Direction.UP), Direction.UP)).with(UP, this.canConnect(westState, upState.isSolidSide(iblockreader, upPos, Direction.DOWN), Direction.DOWN)).with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
+        return super.getStateForPlacement(context).with(NORTH, this.canConnect(northState)).with(EAST, this.canConnect(eastState)).with(SOUTH, this.canConnect(southState)).with(WEST, this.canConnect(westState)).with(DOWN, this.canConnect(downState)).with(UP, this.canConnect(upState)).with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
     }
 
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
@@ -68,7 +69,7 @@ public class SteamPipeBlock extends Block {
             worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
         }
 
-        return facing.getAxis().getPlane() == Direction.Plane.HORIZONTAL ? stateIn.with(FACING_TO_PROPERTY_MAP.get(facing), Boolean.valueOf(this.canConnect(facingState, facingState.isSolidSide(worldIn, facingPos, facing.getOpposite()), facing.getOpposite()))) : super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return stateIn.with(FACING_TO_PROPERTY_MAP.get(facing), this.canConnect(facingState));
     }
 
     @Override
