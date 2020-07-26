@@ -9,7 +9,7 @@
       "item": "yellowstone:nickel_block"
     }
   ],
-  "processingTime": 9000,
+  "processingTime": 7200,
   "result": {
     "item": "yellowstone:brass_block",
     "count": 4

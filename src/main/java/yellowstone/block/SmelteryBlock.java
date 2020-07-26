@@ -17,6 +17,7 @@ import yellowstone.block.entity.SmelteryTileEntity;
 
 import javax.annotation.Nullable;
 
+//TODO: make block rotate and face player and add liquid metal graphics or just change model
 public class SmelteryBlock extends Block {
 
     public SmelteryBlock(Properties p) {

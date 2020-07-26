@@ -5,7 +5,7 @@
       "item": "yellowstone:nickel_ore"
     }
   ],
-  "processingTime": 450,
+  "processingTime": 400,
   "result": {
     "item": "yellowstone:nickel_ingot",
     "count": 2

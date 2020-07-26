@@ -3,7 +3,9 @@ package yellowstone.recipe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
-public class CountedIngredient {
+import java.util.function.Predicate;
+
+public class CountedIngredient implements Predicate<ItemStack> {
 
     private final int count;
     private final Ingredient ingredient;
@@ -29,4 +31,9 @@ public class CountedIngredient {
         return stacks;
     }
 
+    @Override
+    public boolean test(ItemStack itemStack) {
+        boolean matchesIngredient = this.getIngredient().test(itemStack);
+        return matchesIngredient && itemStack.getCount() >= this.getCount();
+    }
 }

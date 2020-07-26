@@ -4,18 +4,23 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.JSONUtils;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.RecipeMatcher;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import yellowstone.main.RecipeRegistry;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SmelteryRecipe implements IRecipe<IInventory> {
 
@@ -40,21 +45,21 @@ public class SmelteryRecipe implements IRecipe<IInventory> {
 
     @Override
     public boolean matches(IInventory inv, World worldIn) {
-        //TODO dont allow random items in empty slots
-        List<CountedIngredient> ingredientList = new ArrayList<>(this.ingredientList);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(0).getCount() >= countedIngredient
-                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(0))).findFirst()
-                .ifPresent(ingredientList::remove);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(1).getCount() >= countedIngredient
-                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(1))).findFirst()
-                .ifPresent(ingredientList::remove);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(2).getCount() >= countedIngredient
-                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(2))).findFirst()
-                .ifPresent(ingredientList::remove);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(3).getCount() >= countedIngredient
-                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(3))).findFirst()
-                .ifPresent(ingredientList::remove);
-        return ingredientList.isEmpty();
+        Map<Item, Integer> inputs = new IdentityHashMap<>();
+        for (int i = 0; i < inv.getSizeInventory(); ++i) {
+            ItemStack itemstack = inv.getStackInSlot(i);
+            if (!itemstack.isEmpty()) {
+                if (inputs.containsKey(itemstack.getItem())) {
+                    inputs.put(itemstack.getItem(), inputs.get(itemstack.getItem()) + itemstack.getCount());
+                } else {
+                    inputs.put(itemstack.getItem(), itemstack.getCount());
+                }
+            }
+        }
+        List<ItemStack> inputList = inputs.entrySet().stream()
+                .map(entry -> new ItemStack(entry.getKey(), entry.getValue())).collect(Collectors.toList());
+
+        return RecipeMatcher.findMatches(inputList, this.getIngredientList()) != null;
     }
 
     public List<CountedIngredient> getIngredientList() {
