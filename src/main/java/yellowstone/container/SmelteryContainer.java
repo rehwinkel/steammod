@@ -11,12 +11,12 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.network.PacketDistributor;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import yellowstone.block.entity.SmelteryTileEntity;
 import yellowstone.container.slots.FuelSlot;
 import yellowstone.container.slots.OutputSlot;
 import yellowstone.main.ContainerRegistry;
 import yellowstone.network.PacketHandler;
 import yellowstone.network.SyncSmelteryMessage;
-import yellowstone.tile_entities.SmelteryTileEntity;
 
 import java.util.function.Supplier;
 

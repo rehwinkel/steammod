@@ -1,4 +1,4 @@
-package yellowstone.tile_entities;
+package yellowstone.block.entity;
 
 import io.netty.buffer.Unpooled;
 import net.minecraft.block.BlockState;

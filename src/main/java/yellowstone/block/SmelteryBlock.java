@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
-import yellowstone.tile_entities.SmelteryTileEntity;
+import yellowstone.block.entity.SmelteryTileEntity;
 
 import javax.annotation.Nullable;
 

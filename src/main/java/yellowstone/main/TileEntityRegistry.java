@@ -4,7 +4,7 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import yellowstone.tile_entities.SmelteryTileEntity;
+import yellowstone.block.entity.SmelteryTileEntity;
 
 public class TileEntityRegistry {
 
