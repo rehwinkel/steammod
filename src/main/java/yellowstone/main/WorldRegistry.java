@@ -18,8 +18,8 @@ import yellowstone.world.YellowstoneSurfaceBuilder;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class WorldRegistry {
 
-    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister
-            .create(ForgeRegistries.FEATURES, Yellowstone.MODID);
+    //TODO: add feature for phlox flower generation
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Yellowstone.MODID);
 
     public static final RegistryObject<YellowstoneLakeFeature> LAKE = FEATURES
             .register("lake", () -> new YellowstoneLakeFeature(YellowstoneLakeConfig.CODEC));

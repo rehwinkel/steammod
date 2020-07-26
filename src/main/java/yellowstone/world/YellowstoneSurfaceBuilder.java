@@ -21,7 +21,7 @@ public class YellowstoneSurfaceBuilder extends SurfaceBuilder<SurfaceBuilderConf
         super(codec);
         layers = new ArrayList<>();
         layers.add(new Layer(BlockRegistry.GRASS.get().getDefaultState(), 1, 0));
-        layers.add(new Layer(BlockRegistry.DIRT.get().getDefaultState(), 3, 2));
+        layers.add(new Layer(BlockRegistry.DIRT.get().getDefaultState(), 2, 2));
         layers.add(new Layer(BlockRegistry.LAVASTONE.get().getDefaultState(), 6, 3));
     }
 

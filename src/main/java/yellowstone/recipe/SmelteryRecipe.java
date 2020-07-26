@@ -40,6 +40,7 @@ public class SmelteryRecipe implements IRecipe<IInventory> {
 
     @Override
     public boolean matches(IInventory inv, World worldIn) {
+        //TODO dont allow random items in empty slots
         List<CountedIngredient> ingredientList = new ArrayList<>(this.ingredientList);
         ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(0).getCount() >= countedIngredient
                 .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(0))).findFirst()
@@ -103,7 +104,7 @@ public class SmelteryRecipe implements IRecipe<IInventory> {
             ArrayList<CountedIngredient> ingredientList = new ArrayList<>();
             JsonArray ingredientsJson = JSONUtils.getJsonArray(json, "ingredients");
             for (JsonElement ingredientJson : ingredientsJson) {
-                int count = JSONUtils.getInt(json, "count", 1);
+                int count = JSONUtils.getInt(ingredientJson.getAsJsonObject(), "count", 1);
                 Ingredient ingredient = Ingredient.deserialize(ingredientJson);
                 if (!ingredient.hasNoMatchingItems()) {
                     ingredientList.add(new CountedIngredient(count, ingredient));

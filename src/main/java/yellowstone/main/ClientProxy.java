@@ -55,6 +55,7 @@ public class ClientProxy implements IProxy {
 
     @SubscribeEvent
     public static void onColorHandler(ColorHandlerEvent.Block event) {
+        //TODO: fix particles being colored
         event.getBlockColors().register((state, reader, pos, i) -> reader != null && pos != null ? BiomeColors
                 .getGrassColor(reader, pos) : GrassColors.get(1.0D, 0.0D), BlockRegistry.GRASS.get());
         event.getBlockColors()

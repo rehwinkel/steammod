@@ -1,5 +1,6 @@
 package yellowstone.recipe;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 
 public class CountedIngredient {
@@ -18,6 +19,14 @@ public class CountedIngredient {
 
     public Ingredient getIngredient() {
         return ingredient;
+    }
+
+    public ItemStack[] getMatchingStacks() {
+        ItemStack[] stacks = this.getIngredient().getMatchingStacks();
+        for (ItemStack stack : stacks) {
+            stack.setCount(getCount());
+        }
+        return stacks;
     }
 
 }
