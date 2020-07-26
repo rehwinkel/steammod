@@ -52,6 +52,7 @@ public class Yellowstone {
             WorldGen.addDouglasTree(WorldRegistry.YELLOWSTONE_BIOME);
             WorldGen.addYellowstoneLakes(WorldRegistry.YELLOWSTONE_BIOME);
             WorldGen.addSomeBirchTrees(WorldRegistry.YELLOWSTONE_BIOME);
+            WorldGen.addPhloxFlower(WorldRegistry.YELLOWSTONE_BIOME);
 
             RecipeRegistry.registerRecipeTypes();
         });
