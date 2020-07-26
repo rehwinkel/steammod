@@ -167,7 +167,9 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
 
             if (processingTime > 0) {
                 processingTime--;
-            } else {
+            }
+
+            if (processingTime == 0) {
                 if (currentRecipe != null) {
                     finishCrafting();
                     flagUpdateClient.set(true);
@@ -188,10 +190,14 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
         IItemHandlerModifiable input = this.input
                 .orElseThrow(() -> new RuntimeException("was null but needed a value"));
         for (CountedIngredient ingred : currentRecipe.getIngredientList()) {
+            int toRemove = ingred.getCount();
             for (int i = 0; i < 4; i++) {
                 if (ingred.getIngredient().test(input.getStackInSlot(i))) {
-                    input.extractItem(i, ingred.getCount(), false);
-                    break;
+                    int extracted = input.extractItem(i, toRemove, false).getCount();
+                    toRemove -= extracted;
+                    if (toRemove == 0) {
+                        break;
+                    }
                 }
             }
         }

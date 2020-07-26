@@ -119,4 +119,19 @@ public class SmelteryContainer extends Container {
             }
         }
     }
+
+    public int getBurnLeftScaled() {
+        if (this.currentFuelTime > 0) {
+            return this.burnTime * 13 / this.currentFuelTime;
+        } else {
+            return 0;
+        }
+    }
+
+    public int getProgressScaled() {
+        if (processingTime == 0 || this.currentRecipeTime == 0) {
+            return 24;
+        }
+        return this.processingTime * 24 / this.currentRecipeTime;
+    }
 }

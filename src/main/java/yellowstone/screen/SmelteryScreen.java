@@ -29,7 +29,6 @@ public class SmelteryScreen extends ContainerScreen<SmelteryContainer> {
         }
     }
 
-    //Background
     @Override
     protected void func_230450_a_(MatrixStack matrixStack, float p_230450_2_, int mouseX, int mouseY) {
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -37,9 +36,9 @@ public class SmelteryScreen extends ContainerScreen<SmelteryContainer> {
         int i = this.guiLeft;
         int j = (this.height - this.ySize) / 2;
         this.blit(matrixStack, i, j, 0, 0, this.xSize, this.ySize);
-        int fireProgress = this.container.currentFuelTime > 0 ? (int) (14.0F * (1.0F - (float) this.container.burnTime / (float) this.container.currentFuelTime)) : 14;
-        this.blit(matrixStack, i + 48, j + 36 + fireProgress, 176, fireProgress, 14, 14 - fireProgress);
-        int craftingProgress = this.container.processingTime > 0 ? 1 + (int) (23.0F * (1.0F - (float) this.container.processingTime / (float) this.container.currentRecipeTime)) : 0;
+        int fireProgress = 13 - this.container.getBurnLeftScaled();
+        this.blit(matrixStack, i + 48, j + 36 + fireProgress, 176, fireProgress, 14, 14 - fireProgress + 1);
+        int craftingProgress = 24 - this.container.getProgressScaled();
         this.blit(matrixStack, i + 79, j + 34, 176, 14, craftingProgress, 17);
     }
 
