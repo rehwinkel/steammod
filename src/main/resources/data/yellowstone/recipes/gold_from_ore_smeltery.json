@@ -1,0 +1,13 @@
+{
+  "type": "yellowstone:smeltery",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ore"
+    }
+  ],
+  "processingTime": 450,
+  "result": {
+    "item": "minecraft:gold_ingot",
+    "count": 2
+  }
+}

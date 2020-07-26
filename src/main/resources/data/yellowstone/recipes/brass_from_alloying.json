@@ -1,0 +1,17 @@
+{
+  "type": "yellowstone:smeltery",
+  "ingredients": [
+    {
+      "item": "yellowstone:copper_ingot",
+      "count": 3
+    },
+    {
+      "item": "yellowstone:nickel_ingot"
+    }
+  ],
+  "processingTime": 1000,
+  "result": {
+    "item": "yellowstone:brass_ingot",
+    "count": 4
+  }
+}

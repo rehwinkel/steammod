@@ -1,0 +1,13 @@
+{
+  "type": "yellowstone:smeltery",
+  "ingredients": [
+    {
+      "item": "yellowstone:copper_ore"
+    }
+  ],
+  "processingTime": 450,
+  "result": {
+    "item": "yellowstone:copper_ingot",
+    "count": 2
+  }
+}

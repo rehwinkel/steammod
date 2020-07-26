@@ -2,10 +2,8 @@ package yellowstone.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import yellowstone.container.SmelteryContainer;
@@ -13,11 +11,21 @@ import yellowstone.main.Yellowstone;
 
 public class SmelteryScreen extends ContainerScreen<SmelteryContainer> {
 
-    private static final ResourceLocation SMELTERY_TEXTURE = new ResourceLocation(Yellowstone.MODID,
-            "textures/gui/container/smeltery.png");
+    private static final ResourceLocation SMELTERY_TEXTURE = new ResourceLocation(Yellowstone.MODID, "textures/gui/container/smeltery.png");
 
     public SmelteryScreen(SmelteryContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if (this.container.burnTime > 0) {
+            this.container.burnTime--;
+        }
+        if (this.container.processingTime > 0) {
+            this.container.processingTime--;
+        }
     }
 
     //Background
@@ -28,6 +36,10 @@ public class SmelteryScreen extends ContainerScreen<SmelteryContainer> {
         int i = this.guiLeft;
         int j = (this.height - this.ySize) / 2;
         this.blit(matrixStack, i, j, 0, 0, this.xSize, this.ySize);
+        int fireProgress = this.container.currentFuelTime > 0 ? (int) (14.0F * (1.0F - (float) this.container.burnTime / (float) this.container.currentFuelTime)) : 14;
+        this.blit(matrixStack, i + 48, j + 36 + fireProgress, 176, fireProgress, 14, 14 - fireProgress);
+        int craftingProgress = this.container.processingTime > 0 ? 1 + (int) (23.0F * (1.0F - (float) this.container.processingTime / (float) this.container.currentRecipeTime)) : 0;
+        this.blit(matrixStack, i + 79, j + 34, 176, 14, craftingProgress, 17);
     }
 
     @Override
@@ -37,9 +49,4 @@ public class SmelteryScreen extends ContainerScreen<SmelteryContainer> {
         this.func_230459_a_(matrixStack, mouseX, mouseY);
     }
 
-    //Foreground
-    @Override
-    protected void func_230451_b_(MatrixStack p_230451_1_, int p_230451_2_, int p_230451_3_) {
-        super.func_230451_b_(p_230451_1_, p_230451_2_, p_230451_3_);
-    }
 }

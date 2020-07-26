@@ -1,0 +1,13 @@
+{
+  "type": "yellowstone:smeltery",
+  "ingredients": [
+    {
+      "item": "yellowstone:nickel_ore"
+    }
+  ],
+  "processingTime": 450,
+  "result": {
+    "item": "yellowstone:nickel_ingot",
+    "count": 2
+  }
+}

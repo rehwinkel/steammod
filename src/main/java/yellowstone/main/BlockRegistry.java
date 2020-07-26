@@ -11,11 +11,7 @@ import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import yellowstone.block.DirtBlock;
-import yellowstone.block.GooseberryBushBlock;
-import yellowstone.block.PathBlock;
-import yellowstone.block.SteamPipeBlock;
-import yellowstone.blocks.SmelteryBlock;
+import yellowstone.block.*;
 import yellowstone.world.DouglasTree;
 
 public class BlockRegistry {

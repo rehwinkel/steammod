@@ -1,0 +1,13 @@
+{
+  "type": "yellowstone:smeltery",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ore"
+    }
+  ],
+  "processingTime": 450,
+  "result": {
+    "item": "minecraft:iron_ingot",
+    "count": 2
+  }
+}

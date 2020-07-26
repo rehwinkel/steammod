@@ -1,0 +1,17 @@
+{
+  "type": "yellowstone:smeltery",
+  "ingredients": [
+    {
+      "item": "yellowstone:copper_block",
+      "count": 3
+    },
+    {
+      "item": "yellowstone:nickel_block"
+    }
+  ],
+  "processingTime": 9000,
+  "result": {
+    "item": "yellowstone:brass_block",
+    "count": 4
+  }
+}

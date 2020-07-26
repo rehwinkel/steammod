@@ -11,7 +11,7 @@ public class PacketHandler {
     public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(Yellowstone.MODID, "main"), () -> VERSION, VERSION::equals, VERSION::equals);
 
     public static void registerPackets() {
-        INSTANCE.registerMessage(0, SyncSmelteryMessage.class, SyncSmelteryMessage::serialize, SyncSmelteryMessage::deserialize, SyncSmelteryMessage::handle);
+        INSTANCE.registerMessage(1, SyncSmelteryMessage.class, SyncSmelteryMessage::serialize, SyncSmelteryMessage::deserialize, SyncSmelteryMessage::handle);
     }
 
 }

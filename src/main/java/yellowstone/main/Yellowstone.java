@@ -35,6 +35,7 @@ public class Yellowstone {
         WorldRegistry.FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
         TileEntityRegistry.TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
         ContainerRegistry.CONTAINERS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        RecipeRegistry.RECIPES.register(FMLJavaModLoadingContext.get().getModEventBus());
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientSetup);
     }
@@ -51,6 +52,8 @@ public class Yellowstone {
             WorldGen.addDouglasTree(WorldRegistry.YELLOWSTONE_BIOME);
             WorldGen.addYellowstoneLakes(WorldRegistry.YELLOWSTONE_BIOME);
             WorldGen.addSomeBirchTrees(WorldRegistry.YELLOWSTONE_BIOME);
+
+            RecipeRegistry.registerRecipeTypes();
         });
         AddPathingShovelItem.addPathing();
         AddStrippingAxeItem.addStripping();
