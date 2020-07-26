@@ -18,12 +18,15 @@ public class PathBlock extends GrassPathBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return !this.getDefaultState().isValidPosition(context.getWorld(), context.getPos()) ? Block.nudgeEntitiesWithNewState(this.getDefaultState(), BlockRegistry.DIRT.get().getDefaultState(), context.getWorld(), context.getPos()) : super.getStateForPlacement(context);
+        return !this.getDefaultState().isValidPosition(context.getWorld(), context.getPos()) ? Block
+                .nudgeEntitiesWithNewState(this.getDefaultState(), BlockRegistry.DIRT.get().getDefaultState(),
+                        context.getWorld(), context.getPos()) : super.getStateForPlacement(context);
     }
 
     @Override
     public void tick(BlockState state, ServerWorld worldIn, BlockPos pos, Random rand) {
-        worldIn.setBlockState(pos, nudgeEntitiesWithNewState(state, BlockRegistry.DIRT.get().getDefaultState(), worldIn, pos));
+        worldIn.setBlockState(pos,
+                nudgeEntitiesWithNewState(state, BlockRegistry.DIRT.get().getDefaultState(), worldIn, pos));
     }
 
 }

@@ -37,7 +37,8 @@ public class SyncSmelteryMessage {
     }
 
     public static SyncSmelteryMessage deserialize(PacketBuffer buffer) {
-        return new SyncSmelteryMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt());
+        return new SyncSmelteryMessage(buffer.readInt(), buffer.readInt(), buffer.readInt(), buffer.readInt(),
+                buffer.readInt());
     }
 
     public static void handle(SyncSmelteryMessage msg, Supplier<NetworkEvent.Context> ctx) {

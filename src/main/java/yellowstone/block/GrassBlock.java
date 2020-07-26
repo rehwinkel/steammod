@@ -30,7 +30,8 @@ public class GrassBlock extends net.minecraft.block.GrassBlock {
         } else if (blockstate.getFluidState().getLevel() == 8) {
             return false;
         } else {
-            int i = LightEngine.func_215613_a(world, state, pos, blockstate, blockpos, Direction.UP, blockstate.getOpacity(world, blockpos));
+            int i = LightEngine.func_215613_a(world, state, pos, blockstate, blockpos, Direction.UP,
+                    blockstate.getOpacity(world, blockpos));
             return i < world.getMaxLightLevel();
         }
     }
@@ -56,8 +57,10 @@ public class GrassBlock extends net.minecraft.block.GrassBlock {
 
                 for (int i = 0; i < 4; ++i) {
                     BlockPos blockpos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (worldIn.getBlockState(blockpos).isIn(BlockRegistry.DIRT.get()) && isLitOrUnderWater(blockstate, worldIn, blockpos)) {
-                        worldIn.setBlockState(blockpos, blockstate.with(SNOWY, worldIn.getBlockState(blockpos.up()).isIn(Blocks.SNOW)));
+                    if (worldIn.getBlockState(blockpos).isIn(BlockRegistry.DIRT.get()) && isLitOrUnderWater(blockstate,
+                            worldIn, blockpos)) {
+                        worldIn.setBlockState(blockpos,
+                                blockstate.with(SNOWY, worldIn.getBlockState(blockpos.up()).isIn(Blocks.SNOW)));
                     }
                 }
             }

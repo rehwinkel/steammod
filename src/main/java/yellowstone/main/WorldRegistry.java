@@ -18,9 +18,11 @@ import yellowstone.world.YellowstoneSurfaceBuilder;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class WorldRegistry {
 
-    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, Yellowstone.MODID);
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister
+            .create(ForgeRegistries.FEATURES, Yellowstone.MODID);
 
-    public static final RegistryObject<YellowstoneLakeFeature> LAKE = FEATURES.register("lake", () -> new YellowstoneLakeFeature(YellowstoneLakeConfig.CODEC));
+    public static final RegistryObject<YellowstoneLakeFeature> LAKE = FEATURES
+            .register("lake", () -> new YellowstoneLakeFeature(YellowstoneLakeConfig.CODEC));
 
     public static YellowstoneSurfaceBuilder YELLOWSTONE_SURFACE;
     public static YellowstoneBiome YELLOWSTONE_BIOME;

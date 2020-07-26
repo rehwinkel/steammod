@@ -39,10 +39,12 @@ public class SteamPipeBlock extends Block {
 
     public SteamPipeBlock(Properties properties) {
         super(properties);
-        this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(UP, false).with(DOWN, false).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateContainer.getBaseState().with(NORTH, false).with(EAST, false).with(SOUTH, false)
+                .with(WEST, false).with(UP, false).with(DOWN, false).with(WATERLOGGED, false));
         shapes = new VoxelShape[64];
         for (byte i = 0; i < 64; i++) {
-            shapes[i] = makeShape(6.0, (i & 0b1) > 0, (i & 0b10) > 0, (i & 0b100) > 0, (i & 0b1000) > 0, (i & 0b10000) > 0, (i & 0b100000) > 0);
+            shapes[i] = makeShape(6.0, (i & 0b1) > 0, (i & 0b10) > 0, (i & 0b100) > 0, (i & 0b1000) > 0,
+                    (i & 0b10000) > 0, (i & 0b100000) > 0);
         }
     }
 
@@ -102,7 +104,8 @@ public class SteamPipeBlock extends Block {
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return getFromShapes(state.get(NORTH), state.get(SOUTH), state.get(EAST), state.get(WEST), state.get(UP), state.get(DOWN));
+        return getFromShapes(state.get(NORTH), state.get(SOUTH), state.get(EAST), state.get(WEST), state.get(UP),
+                state.get(DOWN));
     }
 
     public boolean canConnect(BlockState state) {
@@ -110,7 +113,8 @@ public class SteamPipeBlock extends Block {
     }
 
     private boolean isBlockPipe(Block block) {
-        ITag<Block> tag = BlockTags.getCollection().getOrCreate(new ResourceLocation(Yellowstone.MODID, "pipe_connect"));
+        ITag<Block> tag = BlockTags.getCollection()
+                .getOrCreate(new ResourceLocation(Yellowstone.MODID, "pipe_connect"));
         return block.isIn(tag);
     }
 
@@ -130,7 +134,10 @@ public class SteamPipeBlock extends Block {
         BlockState westState = iblockreader.getBlockState(westPos);
         BlockState downState = iblockreader.getBlockState(downPos);
         BlockState upState = iblockreader.getBlockState(upPos);
-        return super.getStateForPlacement(context).with(NORTH, this.canConnect(northState)).with(EAST, this.canConnect(eastState)).with(SOUTH, this.canConnect(southState)).with(WEST, this.canConnect(westState)).with(DOWN, this.canConnect(downState)).with(UP, this.canConnect(upState)).with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
+        return super.getStateForPlacement(context).with(NORTH, this.canConnect(northState))
+                .with(EAST, this.canConnect(eastState)).with(SOUTH, this.canConnect(southState))
+                .with(WEST, this.canConnect(westState)).with(DOWN, this.canConnect(downState))
+                .with(UP, this.canConnect(upState)).with(WATERLOGGED, fluidstate.getFluid() == Fluids.WATER);
     }
 
     public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {

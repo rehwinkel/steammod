@@ -41,10 +41,18 @@ public class SmelteryRecipe implements IRecipe<IInventory> {
     @Override
     public boolean matches(IInventory inv, World worldIn) {
         List<CountedIngredient> ingredientList = new ArrayList<>(this.ingredientList);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(0).getCount() >= countedIngredient.getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(0))).findFirst().ifPresent(ingredientList::remove);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(1).getCount() >= countedIngredient.getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(1))).findFirst().ifPresent(ingredientList::remove);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(2).getCount() >= countedIngredient.getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(2))).findFirst().ifPresent(ingredientList::remove);
-        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(3).getCount() >= countedIngredient.getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(3))).findFirst().ifPresent(ingredientList::remove);
+        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(0).getCount() >= countedIngredient
+                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(0))).findFirst()
+                .ifPresent(ingredientList::remove);
+        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(1).getCount() >= countedIngredient
+                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(1))).findFirst()
+                .ifPresent(ingredientList::remove);
+        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(2).getCount() >= countedIngredient
+                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(2))).findFirst()
+                .ifPresent(ingredientList::remove);
+        ingredientList.stream().filter(countedIngredient -> inv.getStackInSlot(3).getCount() >= countedIngredient
+                .getCount() && countedIngredient.getIngredient().test(inv.getStackInSlot(3))).findFirst()
+                .ifPresent(ingredientList::remove);
         return ingredientList.isEmpty();
     }
 

@@ -11,7 +11,8 @@ import yellowstone.recipe.SmelteryRecipe;
 
 public class RecipeRegistry {
 
-    public static final DeferredRegister<IRecipeSerializer<?>> RECIPES = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Yellowstone.MODID);
+    public static final DeferredRegister<IRecipeSerializer<?>> RECIPES = DeferredRegister
+            .create(ForgeRegistries.RECIPE_SERIALIZERS, Yellowstone.MODID);
     public static final IRecipeType<SmelteryRecipe> SMELTERY = new IRecipeType<SmelteryRecipe>() {
         @Override
         public String toString() {

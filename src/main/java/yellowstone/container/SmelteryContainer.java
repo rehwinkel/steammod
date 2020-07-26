@@ -31,7 +31,8 @@ public class SmelteryContainer extends Container {
     public int currentRecipeTime;
 
     public SmelteryContainer(int windowId, PlayerInventory playerInv, PacketBuffer data) {
-        this(windowId, playerInv, data.readBlockPos(), new ItemStackHandler(4), new ItemStackHandler(1), new ItemStackHandler(1));
+        this(windowId, playerInv, data.readBlockPos(), new ItemStackHandler(4), new ItemStackHandler(1),
+                new ItemStackHandler(1));
     }
 
     public SmelteryContainer(int windowId, PlayerInventory playerInv, BlockPos pos, ItemStackHandler input, ItemStackHandler output, ItemStackHandler fuel) {
@@ -40,8 +41,13 @@ public class SmelteryContainer extends Container {
         this.world = playerInv.player.getEntityWorld();
         this.tileEntity = (SmelteryTileEntity) playerInv.player.getEntityWorld().getTileEntity(pos);
         if (!world.isRemote) {
-            Supplier<PacketDistributor.TargetPoint> target = PacketDistributor.TargetPoint.p(pos.getX(), pos.getY(), pos.getZ(), 64, world.func_234923_W_());
-            PacketHandler.INSTANCE.send(PacketDistributor.NEAR.with(target), new SyncSmelteryMessage(this.tileEntity.processingTime, this.tileEntity.burnTime, this.tileEntity.currentFuelTime, this.tileEntity.currentRecipe != null ? this.tileEntity.currentRecipe.getProcessingTime() : 0, this.windowId));
+            Supplier<PacketDistributor.TargetPoint> target = PacketDistributor.TargetPoint
+                    .p(pos.getX(), pos.getY(), pos.getZ(), 64, world.func_234923_W_());
+            PacketHandler.INSTANCE.send(PacketDistributor.NEAR.with(target),
+                    new SyncSmelteryMessage(this.tileEntity.processingTime, this.tileEntity.burnTime,
+                            this.tileEntity.currentFuelTime,
+                            this.tileEntity.currentRecipe != null ? this.tileEntity.currentRecipe
+                                    .getProcessingTime() : 0, this.windowId));
         }
 
         this.addSlot(new SlotItemHandler(input, 0, 20, 16));
@@ -103,8 +109,13 @@ public class SmelteryContainer extends Container {
         if (!world.isRemote) {
             if (tileEntity.shouldUpdateClient) {
                 tileEntity.shouldUpdateClient = false;
-                Supplier<PacketDistributor.TargetPoint> target = PacketDistributor.TargetPoint.p(pos.getX(), pos.getY(), pos.getZ(), 64, world.func_234923_W_());
-                PacketHandler.INSTANCE.send(PacketDistributor.NEAR.with(target), new SyncSmelteryMessage(this.tileEntity.processingTime, this.tileEntity.burnTime, this.tileEntity.currentFuelTime, this.tileEntity.currentRecipe != null ? this.tileEntity.currentRecipe.getProcessingTime() : 0, this.windowId));
+                Supplier<PacketDistributor.TargetPoint> target = PacketDistributor.TargetPoint
+                        .p(pos.getX(), pos.getY(), pos.getZ(), 64, world.func_234923_W_());
+                PacketHandler.INSTANCE.send(PacketDistributor.NEAR.with(target),
+                        new SyncSmelteryMessage(this.tileEntity.processingTime, this.tileEntity.burnTime,
+                                this.tileEntity.currentFuelTime,
+                                this.tileEntity.currentRecipe != null ? this.tileEntity.currentRecipe
+                                        .getProcessingTime() : 0, this.windowId));
             }
         }
     }

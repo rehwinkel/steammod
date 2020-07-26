@@ -11,7 +11,8 @@ import yellowstone.main.Yellowstone;
 
 public class SmelteryScreen extends ContainerScreen<SmelteryContainer> {
 
-    private static final ResourceLocation SMELTERY_TEXTURE = new ResourceLocation(Yellowstone.MODID, "textures/gui/container/smeltery.png");
+    private static final ResourceLocation SMELTERY_TEXTURE = new ResourceLocation(Yellowstone.MODID,
+            "textures/gui/container/smeltery.png");
 
     public SmelteryScreen(SmelteryContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn);

@@ -39,7 +39,8 @@ public class YellowstoneLakeFeature extends Feature<YellowstoneLakeConfig> {
             return false;
         } else {
             pos = pos.down(4);
-            if (structureManager.func_235011_a_(SectionPos.from(pos), Structure.field_236381_q_).findAny().isPresent()) {
+            if (structureManager.func_235011_a_(SectionPos.from(pos), Structure.field_236381_q_).findAny()
+                    .isPresent()) {
                 return false;
             } else {
                 boolean[] aboolean = new boolean[2048];
@@ -175,7 +176,8 @@ public class YellowstoneLakeFeature extends Feature<YellowstoneLakeConfig> {
                         for (int j4 = 4; j4 < 8; ++j4) {
                             if (aboolean[(i2 * 16 + j3) * 8 + j4]) {
                                 BlockPos blockpos = pos.add(i2, j4 - 1, j3);
-                                if (isDirt(world.getBlockState(blockpos).getBlock()) && world.getLightFor(LightType.SKY, pos.add(i2, j4, j3)) > 0) {
+                                if (isDirt(world.getBlockState(blockpos).getBlock()) && world
+                                        .getLightFor(LightType.SKY, pos.add(i2, j4, j3)) > 0) {
                                     Biome biome = world.getBiome(blockpos);
                                     if (biome.getSurfaceBuilderConfig().getTop().isIn(Blocks.MYCELIUM)) {
                                         world.setBlockState(blockpos, Blocks.MYCELIUM.getDefaultState(), 2);
