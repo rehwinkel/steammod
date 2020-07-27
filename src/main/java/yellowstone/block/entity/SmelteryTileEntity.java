@@ -27,6 +27,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemStackHandler;
+import yellowstone.block.SmelteryBlock;
 import yellowstone.container.SmelteryContainer;
 import yellowstone.main.RecipeRegistry;
 import yellowstone.main.TileEntityRegistry;
@@ -119,6 +120,7 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
     @Override
     public void tick() {
         if (!world.isRemote) {
+            boolean wasBurning = isBurning();
             AtomicBoolean flagUpdateClient = new AtomicBoolean(false);
             ItemStack fuelStack = this.fuel.orElseThrow(() -> new RuntimeException("was null but needed a value"))
                     .getStackInSlot(0);
@@ -179,7 +181,16 @@ public class SmelteryTileEntity extends TileEntity implements INamedContainerPro
             if (flagUpdateClient.get()) {
                 this.shouldUpdateClient = true;
             }
+
+            if (wasBurning != this.isBurning()) {
+                this.world.setBlockState(this.pos,
+                        this.world.getBlockState(this.pos).with(SmelteryBlock.LIT, this.isBurning()), 3);
+            }
         }
+    }
+
+    private boolean isBurning() {
+        return this.burnTime > 0;
     }
 
     private void finishCrafting() {
