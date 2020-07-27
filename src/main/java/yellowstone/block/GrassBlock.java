@@ -53,14 +53,19 @@ public class GrassBlock extends net.minecraft.block.GrassBlock {
             worldIn.setBlockState(pos, BlockRegistry.DIRT.get().getDefaultState());
         } else {
             if (worldIn.getLight(pos.up()) >= 9) {
-                BlockState blockstate = this.getDefaultState();
+                BlockState grassState = this.getDefaultState();
+                BlockState vanillaGrassState = Blocks.GRASS_BLOCK.getDefaultState();
 
                 for (int i = 0; i < 4; ++i) {
                     BlockPos blockpos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (worldIn.getBlockState(blockpos).isIn(BlockRegistry.DIRT.get()) && isLitOrUnderWater(blockstate,
+                    if (worldIn.getBlockState(blockpos).isIn(BlockRegistry.DIRT.get()) && isLitOrUnderWater(grassState,
                             worldIn, blockpos)) {
                         worldIn.setBlockState(blockpos,
-                                blockstate.with(SNOWY, worldIn.getBlockState(blockpos.up()).isIn(Blocks.SNOW)));
+                                grassState.with(SNOWY, worldIn.getBlockState(blockpos.up()).isIn(Blocks.SNOW)));
+                    } else if (worldIn.getBlockState(blockpos).isIn(Blocks.DIRT) && isLitOrUnderWater(vanillaGrassState,
+                            worldIn, blockpos)) {
+                        worldIn.setBlockState(blockpos,
+                                vanillaGrassState.with(SNOWY, worldIn.getBlockState(blockpos.up()).isIn(Blocks.SNOW)));
                     }
                 }
             }
