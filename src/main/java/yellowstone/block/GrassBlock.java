@@ -69,7 +69,6 @@ public class GrassBlock extends net.minecraft.block.GrassBlock {
                     }
                 }
             }
-
         }
     }
 
