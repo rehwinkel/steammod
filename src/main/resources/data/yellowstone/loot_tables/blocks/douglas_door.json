@@ -9,7 +9,7 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "minecraft:acacia_door",
+              "block": "yellowstone:douglas_door",
               "properties": {
                 "half": "lower"
               }
